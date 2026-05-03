@@ -1,0 +1,59 @@
+._gallery_page_identifier_hero {
+  background: url('/public/assets/images/_03_gallery/hero_image.png') center/cover no-repeat;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3.5rem;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  // 🔻 Large laptops/desktops
+  @media (max-width: 1200px) {
+    height: 800px;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  // 🔻 Tablets
+  @media (max-width: 992px) {
+    height: 600px;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.95rem;
+    }
+  }
+
+  // 🔻 Large Mobiles
+  @media (max-width: 768px) {
+    height: 400px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+    }
+  }
+
+  // 🔻 Small Mobiles
+  @media (max-width: 576px) {
+    height: 250px;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    .breadcrumb {
+      font-size: 0.75rem;
+    }
+  }
+}

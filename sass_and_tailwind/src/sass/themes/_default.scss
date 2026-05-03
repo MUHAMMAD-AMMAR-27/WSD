@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+
+.react-datepicker__day-names {
+  .react-datepicker__day-name {
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.react-datepicker__day--outside-month {
+  color: #a0aec0; /* Tailwind: text-gray-400 */
+  opacity: 0.5;   /* Optional: make them slightly transparent */
+  pointer-events: none; /* optional: disable clicks if you want */
+}

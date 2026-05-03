@@ -1,0 +1,7 @@
+@use "../../base/fonts" as font-mixins;
+
+.contact-us {
+  h1, h3, h4, p, input, select, button {
+    @include font-mixins.font-inter();
+  }
+}

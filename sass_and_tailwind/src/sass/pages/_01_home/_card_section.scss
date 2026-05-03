@@ -1,0 +1,23 @@
+.card-section-home {
+.ring1-image{
+  background-image: url("/circle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+  // styles.scss
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    // Optional: hide scrollbars
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

@@ -1,0 +1,14 @@
+@keyframes growWidth {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.section-2-image.animate-grow {
+  animation: growWidth 1.2s ease-out forwards;
+}

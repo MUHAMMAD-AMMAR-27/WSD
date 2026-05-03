@@ -1,0 +1,6 @@
+@use "../../base/fonts" as font-mixins;
+.gallery {
+  nav, .description {
+    @include font-mixins.font-inter();
+  }
+}

@@ -1,0 +1,4 @@
+@use "../../base/fonts" as font-mixins;
+.content {
+    @include font-mixins.font-inter();
+}

@@ -1,0 +1,7 @@
+@use "../../base/fonts" as font-mixins;
+
+.ticket-section-3 {
+  h2, label, button {
+    @include font-mixins.font-inter();
+  }
+}

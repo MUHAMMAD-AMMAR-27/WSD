@@ -1,0 +1,40 @@
+#!/bin/bash
+
+case "$1" in
+  1)
+    echo "🎨 Running Vite build (watch mode)..."
+    cd sass_and_tailwind || exit
+    npm run build
+    ;;
+
+  2)
+    echo "🔁 Starting CSS transporter via PM2..."
+
+    cd sass_and_tailwind || exit
+
+    if pm2 list | grep -q "css_next_js_helper"; then
+      echo "Process 'css_next_js_helper' exists. Restarting it..."
+      pm2 delete css_next_js_helper
+    else
+      echo "Process 'css_next_js_helper' not found. Starting it fresh..."
+    fi
+
+    clear
+
+    pm2 start css_next_js_helper.mjs --name css_next_js_helper --interpreter node
+
+    echo "📄 Showing logs for 'css_next_js_helper'..."
+    echo "🔻 Press Ctrl + C to stop viewing logs."
+    pm2 logs css_next_js_helper
+    ;;
+
+  3)
+    echo "🚀 Starting Next.js app..."
+    cd app || exit
+    npm start
+    ;;
+
+  *)
+    echo "Usage: ./pokemon {1|2|3}"
+    ;;
+esac

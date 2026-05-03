@@ -1,0 +1,7 @@
+@use "../../base/fonts" as font-mixins;
+
+.blog-detail {
+  h1, p, h3, a, h2 {
+    @include font-mixins.font-inter();
+  }
+}

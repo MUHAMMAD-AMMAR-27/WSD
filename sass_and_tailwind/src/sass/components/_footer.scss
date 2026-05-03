@@ -1,0 +1,18 @@
+@use "../base/fonts" as font-mixins;
+
+footer {
+  @include font-mixins.font-inter();
+
+  .crystals-3d-container {
+    padding: 100px 0;
+
+    img {
+      width: 35vw;
+    }
+  }
+
+  .heading-about, .heading-products {
+    color: #878787;
+  }
+
+}

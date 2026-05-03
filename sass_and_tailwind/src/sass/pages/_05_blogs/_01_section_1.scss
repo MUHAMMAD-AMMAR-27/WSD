@@ -1,0 +1,19 @@
+@use "../../base/fonts" as font-mixins;
+
+.home-page-hero-section{
+  @include font-mixins.font-inter();
+  .background-img {
+    background-image: url('/hero_background.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%; // Force it to stretch FULL height and width
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    pointer-events: none; // Let it stay behind
+  }
+
+}

@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@source "../../../app/**/*.js";
+@source "../../../app/**/*.jsx";
+
+@plugin "daisyui" {
+    themes: light --default;
+    exclude: scrollbar;
+}
+
+@plugin 'tailwind-scrollbar' {
+    nocompatible: true;
+    preferredStrategy: 'pseudoelements';
+}
+
+@config "../../tailwind.config.js";

@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+// Base, Colors, Dimensions, variables
+@use 'base/colors';
+@use 'base/dimens';
+@use 'base/variables';
+@use 'base/fonts';
+
+// Layout-related sections
+@use 'layout/footer';
+@use 'layout/header';
+
+// Components
+@use 'components/button';
+@use 'components/navbar';
+@use 'components/footer' as *;
+@use 'components/page_identifier_hero' as *;
+@use 'components/poke_card' as *;
+@use 'components/dashboard_kit/wsd_dashboard_floating_notification' as *;
+@use 'components/ui_kit/wsd_phone_input_field' as *;
+
+// Themes
+@use 'themes/default';
+
+// Pages
+
+// _01_home:
+@use 'pages/_01_home/experience_hisab_kitab' as *;
+@use 'pages/_01_home/industries_hisab_kitab' as *;
+@use 'pages/_01_home/demo' as *;
+@use 'pages/_01_home/card_section' as *;
+@use 'pages/_01_home/hero' as *;
+@use 'pages/_01_home/description_section' as *;
+@use 'pages/_01_home/01_section_1' as *;
+@use 'pages/_01_home/02_section_2' as *;
+@use 'pages/_01_home/03_section_3' as *;
+@use 'pages/_01_home/04_section_4' as *;
+@use 'pages/_01_home/05_section_5' as *;
+@use 'pages/_01_home/06_section_6' as *;
+@use 'pages/_01_home/07_section_7' as *;
+@use 'pages/_01_home/08_section_8' as *;
+@use 'pages/_01_home/09_section_9' as *;
+
+// _02_about_us:
+@use 'pages/_02_about_us/01_section_1.scss' as *;
+@use 'pages/_02_about_us/02_section_2.scss' as *;
+@use 'pages/_02_about_us/03_section_3.scss' as *;
+@use 'pages/_02_about_us/04_section_4.scss' as *;
+@use 'pages/_02_about_us/05_section_5.scss' as *;
+@use 'pages/_02_about_us/06_section_6.scss' as *;
+@use 'pages/_02_about_us/07_section_7.scss' as *;
+@use 'pages/_02_about_us/08_section_8.scss' as *;
+@use 'pages/_02_about_us/09_section_9.scss' as *;
+@use 'pages/_02_about_us/hero.scss' as *;
+
+// _03_gallery:
+@use "pages/_03_gallery/gallery_page_identifier_hero" as *;
+@use 'pages/_03_gallery/01_section_1.scss' as *;
+@use 'pages/_03_gallery/02_section_2.scss' as *;
+@use 'pages/_03_gallery/03_section_3.scss' as *;
+@use 'pages/_03_gallery/04_section_4.scss' as *;
+
+// _04_contact_us:
+@use 'pages/_04_contact_us/01_section_1.scss' as *;
+@use 'pages/_04_contact_us/02_section_2.scss' as *;
+@use 'pages/_04_contact_us/03_section_3.scss' as *;
+@use 'pages/_04_contact_us/04_section_4.scss' as *;
+
+// _05_blogs:
+@use 'pages/_05_blogs/blog_page_hero-section' as *;
+@use 'pages/_05_blogs/01_section_1.scss' as *;
+@use 'pages/_05_blogs/02_section_2.scss' as *;
+@use 'pages/_05_blogs/03_section_3.scss' as *;
+@use 'pages/_05_blogs/04_section_4.scss' as *;
+@use 'pages/_05_blogs/05_section_5.scss' as *;
+@use 'pages/_05_blogs/06_section_6.scss' as *;
+@use 'pages/_05_blogs/07_section_7.scss' as *;
+@use 'pages/_05_blogs/08_section_8.scss' as *;
+@use 'pages/_05_blogs/09_section_9.scss' as *;
+
+// _06_ticket:
+@use 'pages/_06_ticket/01_section_1.scss' as *;
+@use 'pages/_06_ticket/02_section_2.scss' as *;
+@use 'pages/_06_ticket/03_section_3.scss' as *;
+@use 'pages/_06_ticket/04_section_4.scss' as *;
+@use 'pages/_06_ticket/05_section_5.scss' as *;
+@use 'pages/_06_ticket/06_section_6.scss' as *;
+@use 'pages/_06_ticket/07_section_7.scss' as *;
+@use 'pages/_06_ticket/08_section_8.scss' as *;
+@use 'pages/_06_ticket/09_section_9.scss' as *;
+@use 'pages/_06_ticket/hero.scss' as *;
+
+// _07_auction:
+@use 'pages/_07_auction/01_section_1.scss' as *;
+@use 'pages/_07_auction/02_section_2.scss' as *;
+@use 'pages/_07_auction/03_section_3.scss' as *;
+@use 'pages/_07_auction/04_section_4.scss' as *;
+@use 'pages/_07_auction/05_section_5.scss' as *;
+@use 'pages/_07_auction/06_section_6.scss' as *;
+@use 'pages/_07_auction/07_section_7.scss' as *;
+@use 'pages/_07_auction/08_section_8.scss' as *;
+@use 'pages/_07_auction/09_section_9.scss' as *;
+@use 'pages/_07_auction/hero.scss' as *;
+
+// _08_feedback:
+@use 'pages/_08_feedback/01_section_1.scss' as *;
+@use 'pages/_08_feedback/02_section_2.scss' as *;
+@use 'pages/_08_feedback/03_section_3.scss' as *;
+@use 'pages/_08_feedback/04_section_4.scss' as *;
+@use 'pages/_08_feedback/05_section_5.scss' as *;
+@use 'pages/_08_feedback/06_section_6.scss' as *;
+@use 'pages/_08_feedback/07_section_7.scss' as *;
+@use 'pages/_08_feedback/08_section_8.scss' as *;
+@use 'pages/_08_feedback/09_section_9.scss' as *;

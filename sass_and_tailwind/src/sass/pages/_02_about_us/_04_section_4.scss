@@ -1,0 +1,20 @@
+@use "../../base/fonts" as font-mixins;
+
+.about-section-4 {
+  .card-container {
+    background-image: url('/about_page/about_page_card_bg.png'); // Replace with actual image path
+  }
+
+  .gradient-btn-2 {
+    background: linear-gradient(to right, #331C9C 0%, #9066FB 51%, #331C9C 100%);
+    background-size: 200% auto;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out, transform 0.3s ease;
+
+    &:hover {
+      background-position: right center;
+      transform: scale(1.05);
+    }
+  }
+
+}

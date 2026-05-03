@@ -1,0 +1,41 @@
+@use "../../base/fonts" as font-mixins;
+
+.home-page-section-one {
+  @include font-mixins.font-inter();
+
+  .gradient-text {
+    background: linear-gradient(
+                    to bottom,
+                    black 0%,
+                    black 50%,
+                    gray 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-grayish {
+    color: #939393;
+  }
+
+  .second-stone-card {
+    background: linear-gradient(
+                    to bottom,
+                    #E2DDFC 0%,
+                    #D6E2F7 100%
+    );
+  }
+
+  .third-stone-card {
+    background: linear-gradient(
+                    29deg,
+                    #FFFFFF 0%,
+                    #FAFAFA 20%,
+                    #E2DDFC 100%,
+    );
+
+    p {
+      color: #6E6E6E;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.experience-hisab-kitab {
+
+  .gradient-btn {
+    background: linear-gradient(to right, #150D22, #432170);
+  }
+
+  .background-image-1, .background-image-2, .background-image-3 {
+    position: absolute;
+    background-repeat: no-repeat;
+  }
+
+  .background-image-1 {
+    background-image: url("/purple-background-line.png");
+    background-position: right;
+    background-size: contain;
+  }
+
+  .background-image-2 {
+    background-image: url("/spiral.png");
+    background-position: center;
+    background-size: contain;
+  }
+
+  .background-image-3 {
+    background-image: url("/stars_for_experience_section.png");
+    background-position: center;
+    background-size: contain;
+  }
+
+  $buttonColor: #FF6A00;
+
+  .mac-os-btn {
+    background: $buttonColor;
+  }
+
+  .android-os-btn, .ios-os-btn {
+    border: 1px solid $buttonColor;
+    color: $buttonColor;
+
+    &:hover {
+      background: #432170;
+    }
+  }
+
+  .card-title {
+    color: $buttonColor;
+  }
+
+  @keyframes pulseLine {
+    0% {
+      transform: scaleY(0.5);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    100% {
+      transform: scaleY(0.5);
+    }
+  }
+
+  @mixin pulse-line {
+    animation: pulseLine 5s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+  }
+
+  .line-anim {
+    @include pulse-line;
+  }
+
+}

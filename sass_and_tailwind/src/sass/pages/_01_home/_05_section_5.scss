@@ -1,0 +1,8 @@
+@use "../../base/fonts" as font-mixins;
+
+.section-5 {
+  @include font-mixins.font-inter();
+
+  //height: 300px;
+  //gap: 20px;
+}

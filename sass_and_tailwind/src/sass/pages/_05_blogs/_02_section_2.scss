@@ -1,0 +1,5 @@
+@use "../../base/fonts" as font-mixins;
+
+.section-2-blog-page {
+  @include font-mixins.font-inter();
+}
