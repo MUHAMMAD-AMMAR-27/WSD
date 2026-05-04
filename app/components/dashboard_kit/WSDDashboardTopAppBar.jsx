@@ -62,7 +62,7 @@ const WSDDashboardTopAppBar = ({ searchBarProps }) => {
   };
 
   return (
-    <header className="h-16 bg-blue-800 shadow-md shadow-gray-200 px-6 flex items-center justify-between z-50">
+    <header className="h-16 bg-blue-800 shadow-md text-white px-6 flex items-center justify-between z-50">
       <div className="flex justify-start items-center text-white gap-4 text-sm && alternativeUser?.full_name &&text-green-600 font-bold cursor-pointer">
         <img className="w-9 h-auto object-contain" src="/assets/Logo.png" alt="Pak Qurtuba Logo" />
         <h2 className="font-bold text-2xl">Exam Prep Hub</h2>
