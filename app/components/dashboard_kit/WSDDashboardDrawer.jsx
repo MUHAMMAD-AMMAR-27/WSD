@@ -2,6 +2,14 @@
   import { Link, useLocation, useNavigate, matchPath, useParams } from "react-router-dom";
   import {
     LayoutDashboardIcon,
+    BookOpenText,
+    FileText,
+    Clipboard,
+    ShieldCheck,
+    GraduationCap,
+    BookOpenCheck,
+    BookText,
+    NotebookText,
     PanelLeftDashed,
     FlipHorizontal,
     User,
@@ -47,7 +55,7 @@
     return (
       <Link
         className={clsx(
-          "px-3 py-2 flex gap-4 items-center rounded-lg",
+          "px-3 py-2.5 flex gap-4 items-center rounded-lg",
           isActive
             ? clsx("text-white", isSubItem && "bg-green-800", !isSubItem && "bg-white")
             : "text-white hover:bg-blue-800"
@@ -55,7 +63,7 @@
         to={to}
       >
         {Icon && <Icon />}
-        {typeof label === "string" && <span className="text-sm">{label}</span>}
+        {typeof label === "string" && <span className="text-lg">{label}</span>}
         {typeof label !== "string" && label}
       </Link>
     );
@@ -164,7 +172,11 @@ const WSDDashboardDrawer = () => {
     <aside className="w-72 bg-blue-950 shadow-md shadow-gray-200 p-4 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 select-none">
       <nav className="space-y-2">
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
-          <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/dashboard" />
+        <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/AdminDashboard" />
+        <DrawerMenuItem icon={BookOpenText} label="Exam " to="/Exam" />
+        <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/ExamPrepration" />
+        <DrawerMenuItem icon={Clipboard} label="MCQs" to="/Mcqs" />
+        <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/Quizes" />
         {/*)}*/}
 
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
@@ -182,9 +194,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}`}*/}
         {/*  />*/}
         {/*)}*/}
-
-
-
 
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem icon={User} label="Applicant Manager" to="/applicant_manager" />*/}
@@ -398,65 +407,64 @@ const WSDDashboardDrawer = () => {
         {/*  </DrawerMenuItemsGroup>*/}
         {/*)}*/}
 
-          {/*<DrawerMenuItemsGroup icon={ChartColumn} label="Reports">*/}
+        {/*<DrawerMenuItemsGroup icon={ChartColumn} label="Reports">*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Applicants Status"*/}
-          {/*      to="/reports/applicants_status"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Applicants Status"*/}
+        {/*      to="/reports/applicants_status"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Demand Status Bar"*/}
-          {/*      to="/reports/demand_status_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Demand Status Bar"*/}
+        {/*      to="/reports/demand_status_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Demand Process Bar"*/}
-          {/*      to="/reports/demand_process_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Demand Process Bar"*/}
+        {/*      to="/reports/demand_process_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Applicant Ref Status Bar"*/}
-          {/*      to="/reports/applicant_ref_status_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Applicant Ref Status Bar"*/}
+        {/*      to="/reports/applicant_ref_status_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Applicant Ref Process Bar"*/}
-          {/*      to="/reports/applicant_ref_process_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Applicant Ref Process Bar"*/}
+        {/*      to="/reports/applicant_ref_process_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Demand Ref Status Bar"*/}
-          {/*      to="/reports/demand_ref_status_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Demand Ref Status Bar"*/}
+        {/*      to="/reports/demand_ref_status_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Demand Ref Process Bar"*/}
-          {/*      to="/reports/demand_ref_process_bar"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Demand Ref Process Bar"*/}
+        {/*      to="/reports/demand_ref_process_bar"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Country & Company Status"*/}
-          {/*      to="/reports/country_and_company_status"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Country & Company Status"*/}
+        {/*      to="/reports/country_and_company_status"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
 
-          {/*    <DrawerMenuItem label="Trade Report" to="/reports/trade_report" isSubItem={true} />*/}
+        {/*    <DrawerMenuItem label="Trade Report" to="/reports/trade_report" isSubItem={true} />*/}
 
-          {/*    <DrawerMenuItem*/}
-          {/*      label="Passport Expiry Report"*/}
-          {/*      to="/reports/passport_expiry_report"*/}
-          {/*      isSubItem={true}*/}
-          {/*    />*/}
-          {/*</DrawerMenuItemsGroup>*/}
-
+        {/*    <DrawerMenuItem*/}
+        {/*      label="Passport Expiry Report"*/}
+        {/*      to="/reports/passport_expiry_report"*/}
+        {/*      isSubItem={true}*/}
+        {/*    />*/}
+        {/*</DrawerMenuItemsGroup>*/}
 
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItemsGroup icon={Wallet} label="Accounts">*/}
@@ -542,8 +550,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}/settings`}*/}
         {/*  />*/}
         {/*)}*/}
-
-
       </nav>
     </aside>
   );

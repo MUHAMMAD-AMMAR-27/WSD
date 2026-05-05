@@ -21,6 +21,7 @@ function DashboardPage() {
       searchBarProps={
         {
           placeholder:"Search exams, departments,topics...",
+          IsTopBar:"true",
         }
       }/>
       <WSDDashboardBase>

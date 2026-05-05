@@ -10,8 +10,9 @@ const WSDInputField = ({ wrapperClassName, className = "", type = "text", label,
         "flex h-9 w-full rounded-xl",
 
         // base appearance
-        "border border-blue-700 text-sm text-black ",
+        "border  text-sm text-black ",
         "outline-none",
+        props.IsTopBar && "bg-blue-600 text-white rounded-full placeholder-white",
 
         // hover & focus (green instead of blue)
         // "hover:border-green-500",
@@ -28,10 +29,6 @@ const WSDInputField = ({ wrapperClassName, className = "", type = "text", label,
       {...props}
     />
   );
-  if(props.placeholder){
-    // return
-
-  }
 
 
   if (label) {

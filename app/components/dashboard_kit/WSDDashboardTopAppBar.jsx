@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LogOut, Search, Settings } from "lucide-react";
+import { LogOut, Search, Settings, GraduationCap } from "lucide-react";
 import { useAppSelector } from "../../src/app/hooks.js";
 import {
   selectAlternativeUser,
@@ -62,9 +62,10 @@ const WSDDashboardTopAppBar = ({ searchBarProps }) => {
   };
 
   return (
-    <header className="h-16 bg-blue-800 shadow-md text-white px-6 flex items-center justify-between z-50">
+    <header className="h-18 bg-blue-800 shadow-md text-white px-6 flex items-center justify-between z-50">
       <div className="flex justify-start items-center text-white gap-4 text-sm && alternativeUser?.full_name &&text-green-600 font-bold cursor-pointer">
-        <img className="w-9 h-auto object-contain" src="/assets/Logo.png" alt="Pak Qurtuba Logo" />
+        {/*<img className="w-9 h-auto object-contain" src="" alt="Pak Qurtuba Logo" />*/}
+        <GraduationCap className="w-9 h-auto object-contain"/>
         <h2 className="font-bold text-2xl">Exam Prep Hub</h2>
         {/* {(ifUserRoleIs(ROLE.ADMIN) || ifUserRoleIs(ROLE.EMPLOYEE)) &&
           authenticatedUser?.full_name && (
@@ -109,7 +110,7 @@ const WSDDashboardTopAppBar = ({ searchBarProps }) => {
       <div className="flex items-center gap-4">
         {searchBarProps && (
           <div className={"w-[25vw] flex relative"}>
-            <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none" />
+            <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-white w-4 h-4 pointer-events-none" />
             <WSDInputField
               {...searchBarProps}
               className={clsx("rounded-none pl-8", searchBarProps.className)}
@@ -117,42 +118,43 @@ const WSDDashboardTopAppBar = ({ searchBarProps }) => {
           </div>
         )}
         <div className="flex items-center gap-4">
-        <WSDOptionList
-          value={status}
-          placeholder={"Learn"}
-          onChange={(val) => {
-            setStatus(val);
-          }}
-          options={[
-            { value: "ACTIVE", label: "Active" },
-            { value: "Blocked", label: "block" },
-            { value: "DORMANT", label: "Dormant" },
-          ]}
-        />
-        <WSDOptionList
-          value={status}
-          placeholder={"Practice"}
-          onChange={(val) => {
-            setStatus(val);
-          }}
-          options={[
-            { value: "ACTIVE", label: "Active" },
-            { value: "Blocked", label: "block" },
-            { value: "DORMANT", label: "Dormant" },
-          ]}
-        /><WSDOptionList
-          value={status}
-          placeholder={"Assess"}
-          onChange={(val) => {
-            setStatus(val);
-          }}
-          options={[
-            { value: "ACTIVE", label: "Active" },
-            { value: "Blocked", label: "block" },
-            { value: "DORMANT", label: "Dormant" },
-          ]}
-        />
-          </div>
+          <WSDOptionList
+            value={status}
+            placeholder={"Learn"}
+            onChange={(val) => {
+              setStatus(val);
+            }}
+            options={[
+              { value: "ACTIVE", label: "Active" },
+              { value: "Blocked", label: "block" },
+              { value: "DORMANT", label: "Dormant" },
+            ]}
+          />
+          <WSDOptionList
+            value={status}
+            placeholder={"Practice"}
+            onChange={(val) => {
+              setStatus(val);
+            }}
+            options={[
+              { value: "ACTIVE", label: "Active" },
+              { value: "Blocked", label: "block" },
+              { value: "DORMANT", label: "Dormant" },
+            ]}
+          />
+          <WSDOptionList
+            value={status}
+            placeholder={"Assess"}
+            onChange={(val) => {
+              setStatus(val);
+            }}
+            options={[
+              { value: "ACTIVE", label: "Active" },
+              { value: "Blocked", label: "block" },
+              { value: "DORMANT", label: "Dormant" },
+            ]}
+          />
+        </div>
         {/*{!ifUserRoleIs(ROLE.APPLICANT) && (*/}
         {/*  <Settings*/}
         {/*    size={24}*/}
