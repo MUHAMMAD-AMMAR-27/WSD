@@ -1,17 +1,17 @@
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { countriesSlice } from "../features/countries/countriesSlice";
-import { addNewEmployeeSlice } from "../../pages/masters/add_new_employee/addNewEmployeeSlice";
-import { authenticatedUserSlice } from "../features/authenticated_user/authenticatedUserSlice";
 import logger from "redux-logger";
 
 import { dashboardPageSlice } from "../../pages/dashboard/dashboardPageSlice";
+import { addDepartmentDialogSlice } from "../../pages/dialogs/addDepartment_dialog/addDepartmentDialogSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
 const rootReducer = combineSlices(
   dashboardPageSlice,
+  addDepartmentDialogSlice,
+
 );
 
 // Infer the `RootState` type from the root reducer

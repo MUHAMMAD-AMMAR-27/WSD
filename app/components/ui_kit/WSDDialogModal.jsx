@@ -80,7 +80,7 @@ const WSDDialogModal = ({ children, onClick, onClose, className, ...props }) => 
   return (
     <div
       className={clsx(
-        "bg-white w-[700px] h-[calc(100%-200px)] rounded-lg shadow-xl flex flex-col overflow-hidden",
+        "bg-white w-[full] h-[calc(100%-200px)] rounded-lg shadow-xl flex flex-col overflow-hidden",
         className
       )}
       onClick={(e) => {

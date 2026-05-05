@@ -3,7 +3,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import DashboardPage from "../pages/dashboard/DashboardPage.jsx";
-import AdminDashboardPage from "../pages/dashboard/AdminDashboardPage.jsx"
+import AdminDashboardPage from "../pages/AdminDashboardPage/AdminDashboardPage.jsx"
 export const App = () => {
   return (
     <Router>

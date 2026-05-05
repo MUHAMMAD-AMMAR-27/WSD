@@ -57,7 +57,7 @@
         className={clsx(
           "px-3 py-2.5 flex gap-4 items-center rounded-lg",
           isActive
-            ? clsx("text-white", isSubItem && "bg-green-800", !isSubItem && "bg-white")
+            ? clsx("text-white ", isSubItem && "bg-green-800", !isSubItem && "bg-blue-800")
             : "text-white hover:bg-blue-800"
         )}
         to={to}
@@ -135,37 +135,6 @@ const WSDDashboardDrawer = () => {
   const location = useLocation();
 
   const { applicant_ref_uid, demand_ref_uid } = useParams();
-
-  // const ifUserRoleIs = (role) => {
-  //   const path = location.pathname;
-
-    // const isApplicantRef = matchPath("/dashboard/applicant_ref/:applicant_ref_uid/*", path);
-    //
-    // const isDemandRef = matchPath("/dashboard/demand_ref/:demand_ref_uid/*", path);
-    //
-    // const isApplicant = matchPath("/dashboard/applicant/:applicant_uid/*", path);
-
-    // if (role === ROLE.ADMIN || role === ROLE.EMPLOYEE) {
-    //   if (!isApplicantRef && !isDemandRef && !isApplicant) {
-    //     return true;
-    //   }
-    // }
-
-    // if (role === ROLE.APPLICANT_REF && isApplicantRef) {
-    //   return true;
-    // }
-
-    // if (role === ROLE.DEMAND_REF && isDemandRef) {
-    //   return true;
-    // }
-
-    // noinspection RedundantIfStatementJS
-    // if (role === ROLE.APPLICANT && isApplicant) {
-    //   return true;
-    // }
-
-  //   return false;
-  // };
 
 
   return (

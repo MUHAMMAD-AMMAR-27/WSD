@@ -12,7 +12,8 @@ const WSDInputField = ({ wrapperClassName, className = "", type = "text", label,
         // base appearance
         "border  text-sm text-black ",
         "outline-none",
-        props.IsTopBar && "bg-blue-600 text-white rounded-full placeholder-white",
+        props.IsTopBar &&
+          "bg-blue-400/[.4] h-10 border-blue-700  text-white rounded-l-full rounded-r-full placeholder-white",
 
         // hover & focus (green instead of blue)
         // "hover:border-green-500",
