@@ -99,15 +99,15 @@
           onClick={() => setIsOpen(!isOpen)}
           className={clsx(
             `px-3 py-2 flex items-center justify-between gap-4 rounded-md cursor-pointer`,
-            !isOpen && hasActiveChild && "bg-green-600 text-white",
-            isOpen && hasActiveChild && "bg-green-600 text-white",
-            !isOpen && !hasActiveChild && "text-gray-700 hover:bg-gray-100",
-            isOpen && !hasActiveChild && "bg-green-400 text-white"
+            !isOpen && hasActiveChild && "bg-blue-800 text-white",
+            isOpen && hasActiveChild && "bg-blue-800 text-white",
+            !isOpen && !hasActiveChild && "text-white hover:bg-blue-800",
+            isOpen && !hasActiveChild && "bg-blue-700 text-white"
           )}
         >
           <div className="flex items-center gap-4">
             {Icon && <Icon />}
-            {typeof label === "string" && <span className="text-sm">{label}</span>}
+            {typeof label === "string" && <span className="text-lg">{label}</span>}
             {typeof label !== "string" && label}
           </div>
           <span
@@ -141,13 +141,36 @@ const WSDDashboardDrawer = () => {
     <aside className="w-72 bg-blue-950 shadow-md shadow-gray-200 p-4 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 select-none">
       <nav className="space-y-2">
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
+        <DrawerMenuItemsGroup icon={LayoutDashboardIcon} label="Admin Dashboard">
+          <DrawerMenuItem
+            label="Add Department"
+            to="/adminDashboard/addDepartment"
+            isSubItem={true}
+          />
+
+          <DrawerMenuItem
+            label="Sent To Demand Ref"
+            to="/required_demands/sent_to_demand_ref"
+            isSubItem={true}
+          />
+          <DrawerMenuItem
+            label="Your Replied Demands"
+            to="/required_demands/your_replied_demands_required_demands"
+            isSubItem={true}
+          />
+          <DrawerMenuItem
+            label="Reply From Demand Ref"
+            to="/required_demands/reply_from_demand_ref"
+            isSubItem={true}
+          />
+        </DrawerMenuItemsGroup>
         <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/AdminDashboard" />
         <DrawerMenuItem icon={BookOpenText} label="Exam " to="/Exam" />
         <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/ExamPrepration" />
         <DrawerMenuItem icon={Clipboard} label="MCQs" to="/Mcqs" />
         <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/Quizes" />
-        {/*)}*/}
 
+        {/*)}*/}
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={LayoutDashboardIcon}*/}
@@ -155,7 +178,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={LayoutDashboardIcon}*/}
@@ -163,11 +185,9 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem icon={User} label="Applicant Manager" to="/applicant_manager" />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={User}*/}
@@ -175,7 +195,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}/applicant_manager`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={Box}*/}
@@ -194,7 +213,6 @@ const WSDDashboardDrawer = () => {
         {/*    }}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={Box}*/}
@@ -209,7 +227,6 @@ const WSDDashboardDrawer = () => {
         {/*    // }}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={Box}*/}
@@ -226,11 +243,9 @@ const WSDDashboardDrawer = () => {
         {/*    // }}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem icon={BadgeAlert} label="Active Demands" to="/active_demands" />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={ChartBar}*/}
@@ -251,7 +266,6 @@ const WSDDashboardDrawer = () => {
         {/*    }}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={ChartColumn}*/}
@@ -259,7 +273,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}/applicants_process_bar`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={Zap}*/}
@@ -267,7 +280,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}/active_demands`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={Zap}*/}
@@ -275,7 +287,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}/active_demands`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={ChartBar}*/}
@@ -295,7 +306,6 @@ const WSDDashboardDrawer = () => {
         {/*    }}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={ChartColumn}*/}
@@ -303,7 +313,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}/demand_process_bar`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItemsGroup icon={Bolt} label="Required Demands">*/}
         {/*    <DrawerMenuItem*/}
@@ -311,7 +320,6 @@ const WSDDashboardDrawer = () => {
         {/*      to="/required_demands/new_demand_by_app_ref"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Sent To Demand Ref"*/}
         {/*      to="/required_demands/sent_to_demand_ref"*/}
@@ -329,7 +337,6 @@ const WSDDashboardDrawer = () => {
         {/*    />*/}
         {/*  </DrawerMenuItemsGroup>*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={BadgeAlert}*/}
@@ -337,7 +344,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/applicant_ref/${applicant_ref_uid}/required_demands`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={BadgeAlert}*/}
@@ -345,10 +351,8 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}/required_demands`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItemsGroup icon={Aperture} label="Masters">*/}
-
         {/*        <DrawerMenuItem*/}
         {/*            label="Add New Employee"*/}
         {/*            to="/masters/add_new_employee?show=all"*/}
@@ -375,66 +379,54 @@ const WSDDashboardDrawer = () => {
         {/*    <DrawerMenuItem label="Phone Book" to="/masters/phone_book" isSubItem={true} />*/}
         {/*  </DrawerMenuItemsGroup>*/}
         {/*)}*/}
-
         {/*<DrawerMenuItemsGroup icon={ChartColumn} label="Reports">*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Applicants Status"*/}
         {/*      to="/reports/applicants_status"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Demand Status Bar"*/}
         {/*      to="/reports/demand_status_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Demand Process Bar"*/}
         {/*      to="/reports/demand_process_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Applicant Ref Status Bar"*/}
         {/*      to="/reports/applicant_ref_status_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Applicant Ref Process Bar"*/}
         {/*      to="/reports/applicant_ref_process_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Demand Ref Status Bar"*/}
         {/*      to="/reports/demand_ref_status_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Demand Ref Process Bar"*/}
         {/*      to="/reports/demand_ref_process_bar"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Country & Company Status"*/}
         {/*      to="/reports/country_and_company_status"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
-
         {/*    <DrawerMenuItem label="Trade Report" to="/reports/trade_report" isSubItem={true} />*/}
-
         {/*    <DrawerMenuItem*/}
         {/*      label="Passport Expiry Report"*/}
         {/*      to="/reports/passport_expiry_report"*/}
         {/*      isSubItem={true}*/}
         {/*    />*/}
         {/*</DrawerMenuItemsGroup>*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItemsGroup icon={Wallet} label="Accounts">*/}
         {/*    <DrawerMenuItem*/}
@@ -475,7 +467,6 @@ const WSDDashboardDrawer = () => {
         {/*    />*/}
         {/*  </DrawerMenuItemsGroup>*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItemsGroup icon={ChartBar} label="Progress Report">*/}
         {/*    <DrawerMenuItem label="Admin" to="/progress_report/admin" isSubItem={true} />*/}
@@ -487,11 +478,9 @@ const WSDDashboardDrawer = () => {
         {/*    />*/}
         {/*  </DrawerMenuItemsGroup>*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem icon={FileSymlink} label="Applicants CV" to="/applicants_cv" />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={FileSymlink}*/}
@@ -499,11 +488,9 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}/applicants_cv`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.ADMIN) && (*/}
         {/*  <DrawerMenuItem icon={SettingsIcon} label="Settings" to="/settings" />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.DEMAND_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={SettingsIcon}*/}
@@ -511,7 +498,6 @@ const WSDDashboardDrawer = () => {
         {/*    to={`/dashboard/demand_ref/${demand_ref_uid}/settings`}*/}
         {/*  />*/}
         {/*)}*/}
-
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}
         {/*  <DrawerMenuItem*/}
         {/*    icon={SettingsIcon}*/}
