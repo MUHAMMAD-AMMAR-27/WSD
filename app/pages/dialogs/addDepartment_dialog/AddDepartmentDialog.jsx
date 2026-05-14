@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import WSDDialogModal, {
   WSDDialogModalHeader,
@@ -16,22 +16,26 @@ import { useAppDispatch, useAppSelector } from "../../../src/app/hooks.js";
 
 import {
   selectDepartment,
-  selectSubDepartment,
+  selectSubDepartments,
   setDepartment,
-  addSubDepartment,
-  updateSubDepartment,
-  removeSubDepartment,
-  resetAddDepartmentDialogSliceState,
+  addSubDepartments, resetAddDepartmentDialogSliceState,
+  // updateSubDepartment,
+  // removeSubDepartment,
+  // resetAddDepartmentDialogSliceState,
 } from "./addDepartmentDialogSlice.js";
+import WSDInputField from "../../../components/ui_kit/WSDInputField.jsx";
+import WSDChipsContainer from "../../../components/ui_kit/WSDChipsContainer.jsx";
 
 const AddDepartmentDialog = ({ onSubmit, onClose, ...props }) => {
   const dispatch = useAppDispatch();
 
-  const department = useAppSelector(selectDepartment);
-  const subDepartments = useAppSelector(selectSubDepartment);
+  const Department = useAppSelector(selectDepartment);
+  const SubDepartments = useAppSelector(selectSubDepartments);
+
+  const [SubDepartment,SetSubDepartment]=useState("")
 
   const handleDialogSubmit = () => {
-    if (!department || department.trim() === "") {
+    if (!Department || Department.trim() === "") {
       dispatch(
         queueNotification(
           new ErrorNotification()
@@ -44,31 +48,20 @@ const AddDepartmentDialog = ({ onSubmit, onClose, ...props }) => {
       return;
     }
 
-    if (subDepartments.length === 0) {
-      dispatch(
-        queueNotification(
-          new ErrorNotification()
-            .withTitle("Missing SubDepartment")
-            .withMessage("Add at least one SubDepartment.")
-            .setDuration(5000)
-            .build()
-        )
-      );
-      return;
-    }
+    onSubmit?.({
+      Department: Department,
+      SubDepartment: SubDepartments,
 
-    onSubmit({
-      Department: department,
-      SubDepartment: subDepartments,
 
     });
-    // console.log(department)
+
 
     dispatch(resetAddDepartmentDialogSliceState());
   };
 
   const handleReset = () => {
     dispatch(resetAddDepartmentDialogSliceState());
+    SetSubDepartment("");
   };
 
   return (
@@ -76,59 +69,102 @@ const AddDepartmentDialog = ({ onSubmit, onClose, ...props }) => {
       <WSDDialogModalHeader dialogTitle={"Add Department"} onClose={onClose} />
 
       <WSDDialogModalScrollableContent>
-        <div className="flex flex-col gap-4">
-          {/* Department Input */}
-          {/*<div className="flex flex-col gap-1">*/}
-          {/*  <label className="text-sm font-medium">Department</label>*/}
+        <div className="flex flex-col gap-4 ">
 
-          {/*  <input*/}
-          {/*    type="text"*/}
-          {/*    value={department}*/}
-          {/*    onChange={(e) => dispatch(setDepartment(e.target.value))}*/}
-          {/*    className="border rounded-md px-3 py-2"*/}
-          {/*    placeholder="Enter Department Name"*/}
-          {/*  />*/}
-          {/*</div>*/}
+            <label className={"text-lg"}>Add Department</label>
+            <WSDInputField
+              placeholder={"Enter Department Name"}
+              value={Department}
+              disabled={SubDepartments.length !==0}
+              onChange={(e) => {
+                dispatch(setDepartment(e.target.value.trim()));
+              }}
+            />
+          <label>Add SubDepartment</label>
+          <WSDInputField
+            placeholder={"Enter SubDepartment"}
+            value={SubDepartment}
+            onChange={(e)=>SetSubDepartment(e.target.value)}
+            onKeyDown={(e)=>{
 
-          {/*/!* SubDepartment Section *!/*/}
-          {/*<div className="flex flex-col gap-2">*/}
-          {/*  <div className="flex items-center justify-between">*/}
-          {/*    <label className="text-sm font-medium">SubDepartments</label>*/}
+              if(e.key==="Enter" || e.key==="Tab"){
+                e.preventDefault();
 
-          {/*    <button*/}
-          {/*      onClick={() => dispatch(addSubDepartment())}*/}
-          {/*      className="text-sm text-blue-600"*/}
-          {/*    >*/}
-          {/*      + Add*/}
-          {/*    </button>*/}
-          {/*  </div>*/}
+                 if(SubDepartment.trim()===""){
+                   dispatch(
+                     queueNotification(
+                       new ErrorNotification()
+                         .withTitle("Empty Field")
+                         .withMessage("Enter SubDepartment first.")
+                         .setDuration(5000)
+                         .build()
+                     )
+                   );
+                 }
+                 else{
+                   const exist= SubDepartments.some((c)=>{
+                     return  c.toLowerCase().trim() === SubDepartment.toLowerCase().trim();
+                   })
 
-          {/*  {subDepartments.map((subDepartment, index) => (*/}
-          {/*    <div key={index} className="flex gap-2">*/}
-          {/*      <input*/}
-          {/*        type="text"*/}
-          {/*        value={subDepartment}*/}
-          {/*        onChange={(e) =>*/}
-          {/*          dispatch(*/}
-          {/*            updateSubDepartment({*/}
-          {/*              index,*/}
-          {/*              value: e.target.value,*/}
-          {/*            })*/}
-          {/*          )*/}
-          {/*        }*/}
-          {/*        className="border rounded-md px-3 py-2 flex-1"*/}
-          {/*        placeholder="Enter SubDepartment"*/}
-          {/*      />*/}
+                   if(exist){
+                     dispatch(
+                       queueNotification(
+                         new ErrorNotification()
+                           .withTitle("SubDepartment Already exit")
+                           .withMessage("Enter another SubDepartment.")
+                           .setDuration(5000)
+                           .build()
+                       )
+                     );
+                   }
+                   else{
+                     dispatch(addSubDepartments(SubDepartment))
+                   }
 
-          {/*      <button*/}
-          {/*        onClick={() => dispatch(removeSubDepartment(index))}*/}
-          {/*        className="text-red-500"*/}
-          {/*      >*/}
-          {/*        Remove*/}
-          {/*      </button>*/}
-          {/*    </div>*/}
-          {/*  ))}*/}
-          {/*</div>*/}
+            }
+              }
+
+            }}
+              />
+          <WSDPrimaryButton
+            children={"Add Fields"}
+            disabled={Department.trim()===""  }
+            onClick={(e)=>{
+              if(SubDepartment.trim()!==""){
+                const exist = SubDepartments.some((c) => {
+                  return c.toLowerCase().trim() === SubDepartment.toLowerCase().trim();
+                });
+                if (exist) {
+                  dispatch(
+                    queueNotification(
+                      new ErrorNotification()
+                        .withTitle("SubDepartment Already exit")
+                        .withMessage("Enter another SubDepartment.")
+                        .setDuration(5000)
+                        .build()
+                    )
+                  );
+                } else {
+                  dispatch(addSubDepartments(SubDepartment));
+
+                  // onSubmit()
+
+
+                }
+
+
+
+
+              }}}
+
+          />
+          <WSDChipsContainer chips={SubDepartments.map((Subdepartment)=>{
+            return{
+              id:crypto.randomUUID(),
+              label:Subdepartment,
+            };
+            })}
+          />
         </div>
       </WSDDialogModalScrollableContent>
 
@@ -144,5 +180,6 @@ const AddDepartmentDialog = ({ onSubmit, onClose, ...props }) => {
     </WSDDialogModal>
   );
 };
+
 
 export default AddDepartmentDialog;

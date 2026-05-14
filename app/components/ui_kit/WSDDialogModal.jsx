@@ -25,7 +25,7 @@ export const WSDDialogModalHeader = ({
   if (dialogTitle) {
     return (
       <div
-        className="flex items-center justify-between p-4 border-b border-b-gray-200 shrink-0 relative"
+        className="flex items-center justify-center text-lg p-4 border-b border-b-gray-200 shrink-0 relative"
         {...props}
       >
         <h2 className="font-semibold">{dialogTitle || "Dialog"}</h2>
@@ -80,7 +80,7 @@ const WSDDialogModal = ({ children, onClick, onClose, className, ...props }) => 
   return (
     <div
       className={clsx(
-        "bg-white w-[full] h-[calc(100%-200px)] rounded-lg shadow-xl flex flex-col overflow-hidden",
+        "bg-white w-[40%] h-[calc(100%-200px)] rounded-lg shadow-xl flex flex-col overflow-hidden",
         className
       )}
       onClick={(e) => {

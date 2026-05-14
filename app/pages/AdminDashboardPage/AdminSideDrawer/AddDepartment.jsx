@@ -58,7 +58,6 @@ function AdminDashboardPage() {
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar />
-
       <WSDDashboardBase>
         <WSDDashboardDrawer />
 
@@ -69,19 +68,21 @@ function AdminDashboardPage() {
             {/*  description={"Manage XXXXXXXXXXXXXXXXXXXXXXX"}*/}
             {/*/>*/}
 
-            <div className={"flex gap-2"}>
+            <div  className="flex w-full justify-between">
               <div>
-                <h1>add</h1>
+                <h1>Choose department to Add </h1>
               </div>
-              <WSDPrimaryButton
-                className={"flex items-center gap-2"}
-                onClick={(e) => {
-                  // dispatch(resetFormOfXXXXXXXXXXXXXXXRefDialog()); // This Resets the dialog state first.
-                  setActiveDialog(DIALOGS.ADD_DEPARTMENT);
-                }}
-              >
-                <Plus size={20} /> Add Department
-              </WSDPrimaryButton>
+              <div>
+                <WSDPrimaryButton
+                  className={"flex items-center gap-2"}
+                  onClick={(e) => {
+                    // dispatch(resetFormOfXXXXXXXXXXXXXXXRefDialog()); // This Resets the dialog state first.
+                    setActiveDialog(DIALOGS.ADD_DEPARTMENT);
+                  }}
+                >
+                  <Plus size={20} /> Add Department
+                </WSDPrimaryButton>
+              </div>
             </div>
           </div>
 
