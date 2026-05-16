@@ -31,27 +31,19 @@ import WSDTableActionsColumn from "../../../components/ui_kit/wsd_table/WSDTable
 import WSDPrimaryButton from "../../../components/ui_kit/WSDPrimaryButton.jsx";
 import { setWSDAlertDialogPayload } from "../../../components/ui_kit/wsd_alert_dialog/wsdAlertDialogSlice.js";
 import { hasFlag } from "country-flag-icons";
-import AddDepartmentDialog from "../../dialogs/adddepartment_dialog/AddDepartmentDialog.jsx";
+import AddSubjectsDialog from "../../dialogs/addsubjects_dialog/AddSubjectsDialog.jsx";
 
 const DIALOGS = {
-  ADD_DEPARTMENT: "ADD_DEPARTMENT",
+  ADD_SUBJECTS: "ADD_SUBJECTS",
 };
 
-function AddDepartment() {
+function AddSubjects() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const [activeDialog, setActiveDialog] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    if (!searchParams.get("show")) {
-      searchParams.set("show", "all");
-      setSearchParams(searchParams, { replace: true });
-    }
-  }, [searchParams, setSearchParams]);
-
-  const handleAddDepartmentDialogSubmit = (payload) => {
+  const handleAddSubjectsDialogSubmit = (payload) => {
     /* TODO: */
   };
 
@@ -63,10 +55,14 @@ function AddDepartment() {
           istopbar: "true",
         }}
       />
+
       <WSDDashboardBase>
         <WSDDashboardDrawer />
 
-        <WSDDashboardMainBodyContainer containsOverlay={[].some(Boolean)}>
+        <WSDDashboardMainBodyContainer
+          containsOverlay={[].some(Boolean)}
+          // containsOverlay={[(applicantReferences ?? []).length === 0].some(Boolean)}
+        >
           <div className="flex justify-between items-center bg-white p-4 border border-gray-200 rounded-lg shadow-sm z-100">
             {/*<WSDDashboardBreadCrumb*/}
             {/*  subSteps={["Masters", "XXXXXXXXXXXXXXXXXX"]}*/}
@@ -75,17 +71,17 @@ function AddDepartment() {
 
             <div className="flex w-full justify-between items-center">
               <div>
-                <h1 className={"text-lg font-bold "}>Choose Department to Add </h1>
+                <h1 className={"text-lg font-bold "}>Choose Subjects to Add </h1>
               </div>
               <div>
                 <WSDPrimaryButton
                   className={"flex items-center gap-2"}
                   onClick={(e) => {
                     // dispatch(resetFormOfXXXXXXXXXXXXXXXRefDialog()); // This Resets the dialog state first.
-                    setActiveDialog(DIALOGS.ADD_DEPARTMENT);
+                    setActiveDialog(DIALOGS.ADD_SUBJECTS);
                   }}
                 >
-                  <Plus size={20} /> Add Department
+                  <Plus size={20} /> Add Subject
                 </WSDPrimaryButton>
               </div>
             </div>
@@ -102,18 +98,20 @@ function AddDepartment() {
 
       {/** ALL DIALOGS WILL BE PLACED BELOW ----------------------- */}
 
-      {activeDialog === DIALOGS.ADD_DEPARTMENT && (
+      {activeDialog === DIALOGS.ADD_SUBJECTS && (
         <WSDOverlayWrapper>
-          <AddDepartmentDialog
-            onClose={(e) => setActiveDialog(null)}
-            onSubmit={handleAddDepartmentDialogSubmit}
-          />
+          {
+            <AddSubjectsDialog
+              onClose={(e) => setActiveDialog(null)}
+              onSubmit={handleAddSubjectsDialogSubmit}
+            />
+          }
           {/*<WSDAlertDialog
             title={"Are You Sure?"}
             message={
               "This action will permanently delete this item. It cannot be undone."
             }
-            positiveButton={positiveBtn(["Yes", "danger"], handleAddDepartmentDialogSubmit)}
+            positiveButton={positiveBtn(["Yes", "danger"], handleAddSubjectsDialogSubmit)}
             negativeButton={negativeBtn(["No"], (payload) => setActiveDialog(null))}
             onClose={(e) => setActiveDialog(null)}
           />*/}
@@ -134,4 +132,4 @@ function AddDepartment() {
   );
 }
 
-export default AddDepartment;
+export default AddSubjects;

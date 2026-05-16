@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import clsx from "clsx";
 import { ChevronDown } from "lucide-react";
-import AddDepartmentDialog from "../dialogs/addDepartment_dialog/AddDepartmentDialog.jsx";
+// import AddDepartmentDialog from "../dialogs/addDepartment_dialog/AddDepartmentDialog.jsx";
 
 // Single dashboard item
 const DrawerMenuItem = ({

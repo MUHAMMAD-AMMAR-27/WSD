@@ -57,7 +57,7 @@
         className={clsx(
           "px-3 py-2.5 flex gap-4 items-center rounded-lg",
           isActive
-            ? clsx("text-white ", isSubItem && "bg-green-800", !isSubItem && "bg-blue-800")
+            ? clsx("text-white ", isSubItem && "bg-blue-600 ", !isSubItem && "bg-blue-800")
             : "text-white hover:bg-blue-800"
         )}
         to={to}
@@ -149,8 +149,8 @@ const WSDDashboardDrawer = () => {
           />
 
           <DrawerMenuItem
-            label="Sent To Demand Ref"
-            to="/required_demands/sent_to_demand_ref"
+            label="Add subjects"
+            to="/adminDashboard/addSubject"
             isSubItem={true}
           />
           <DrawerMenuItem
@@ -164,7 +164,7 @@ const WSDDashboardDrawer = () => {
             isSubItem={true}
           />
         </DrawerMenuItemsGroup>
-        <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/AdminDashboard" />
+        <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/" />
         <DrawerMenuItem icon={BookOpenText} label="Exam " to="/Exam" />
         <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/ExamPrepration" />
         <DrawerMenuItem icon={Clipboard} label="MCQs" to="/Mcqs" />

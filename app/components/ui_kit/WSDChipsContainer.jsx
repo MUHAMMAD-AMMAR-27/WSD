@@ -11,6 +11,8 @@ export const WSDChip = ({
   readonly = false,
   ...props
 }) => {
+
+
   return (
     <div
       onClick={() => onSelect?.(chip)}

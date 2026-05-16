@@ -4,13 +4,15 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import logger from "redux-logger";
 
 import { dashboardPageSlice } from "../../pages/dashboard/dashboardPageSlice";
-import { addDepartmentDialogSlice } from "../../pages/dialogs/addDepartment_dialog/addDepartmentDialogSlice";
+import { addDepartmentDialogSlice } from "../../pages/dialogs/adddepartment_dialog/addDepartmentDialogSlice";
+import { addSubjectsDialogSlice } from "../../pages/dialogs/addsubjects_dialog/addSubjectsDialogSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
 const rootReducer = combineSlices(
   dashboardPageSlice,
   addDepartmentDialogSlice,
+  addSubjectsDialogSlice,
 
 );
 

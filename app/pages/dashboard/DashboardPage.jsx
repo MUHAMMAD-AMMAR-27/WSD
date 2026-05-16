@@ -18,50 +18,34 @@ function DashboardPage() {
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar
-      searchBarProps={
-        {
-          placeholder:"Search exams, departments,topics...",
-          IsTopBar:"true",
-        }
-      }/>
+        searchBarProps={{
+          placeholder: "Search exams, departments,topics...",
+          IsTopBar: "true",
+        }}
+      />
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
           <div className="flex flex-col gap-4 min-h-full w-full">
-            Bread Crumb
-            <WSDDashboardBreadCrumb subSteps={["Overview"]} />
-            <div>
-              <div className="flex gap-2 mb-4">
-                <WSDInputField placeholder={"Enter Passport, CNIC, or Phone Number"} />
-                <WSDPrimaryButton>Search</WSDPrimaryButton>
-              </div>
-            </div>
+
+            {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
             <div>
               <div
                 data-slot="card"
-                className="bg-white text-card-foreground border-gray-200 flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
+                className="bg-white text-card-foreground w-1/3 border-gray-200 flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
               >
-                <div data-slot="card-content" className="p-4 pt-0 space-y-6">
-                  <StatHeading Heading={"Total Assigned Applicants"} value={25} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 -mt-2  gap-3   w-full">
-                    <StatsCard title={"Active Assigned"} value={23} />
-                    <StatsCard title={"Green Active"} value={2} />
-                    <StatsCard title={"Blue Active"} value={21} />
-                    <StatsCard title={"Closed Assigned"} value={2} />
-                    <StatsCard title={"Green Closed"} value={1} />
-                    <StatsCard title={"Blue Closed"} value={1} />
-                  </div>
-                  <StatHeading Heading={"Total Demands"} value={13} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3  gap-3 -mt-2   w-full">
-                    <StatsCard title={"Active Assigned Demands"} value={23} />
-                    <StatsCard title={"Green Active Demands"} value={2} />
-                    <StatsCard title={"Blue Active Demands"} value={21} />
-                    <StatsCard title={"Closed Assigned Demands"} value={2} />
-                    <StatsCard title={"Green Closed Demands"} value={1} />
-                    <StatsCard title={"Blue Closed Demands"} value={1} />
-                  </div>
-                </div>
+                {/*<div data-slot="card-content" className="p-4 pt-0 space-y-6">*/}
+                <StatHeading Heading={"Exam Preparation"} />
+
+
+
+                <StatHeading Heading={"Total Demands"}  />
+
+
+
               </div>
+
+
               <div className="mt-4">
                 <div
                   data-slot="card"
@@ -321,89 +305,8 @@ function DashboardPage() {
                       Monthly Statistics
                     </div>
                   </div>
-                  <div data-slot="card-content" className="px-6">
-                    <LineChart
-                      style={{ width: "100%", maxHeight: "40vh", aspectRatio: 1.618 }}
-                      responsive
-                      data={[
-                        {
-                          name: "January",
-                          uv: 4000,
-                          pv: 2400,
-                          amt: 2400,
-                          ooo: "woow",
-                        },
-                        {
-                          name: "Page B",
-                          uv: 3000,
-                          pv: 1398,
-                          amt: 2210,
-                        },
-                        {
-                          name: "Page C",
-                          uv: 2000,
-                          pv: 9800,
-                          amt: 2290,
-                        },
-                        {
-                          name: "Page D",
-                          uv: 2780,
-                          pv: 3908,
-                          amt: 2000,
-                        },
-                        {
-                          name: "Page E",
-                          uv: 1890,
-                          pv: 4800,
-                          amt: 2181,
-                        },
-                        {
-                          name: "Page F",
-                          uv: 2390,
-                          pv: 3800,
-                          amt: 2500,
-                        },
-                        {
-                          name: "Page G",
-                          uv: 3490,
-                          pv: 4300,
-                          amt: 2100,
-                        },
-                      ]}
-                      margin={{
-                        top: 5,
-                        right: 0,
-                        left: 0,
-                        bottom: 5,
-                      }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis width="auto" />
-                      <Tooltip />
-                      <Legend />
-                      <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                      <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                    </LineChart>
-                  </div>
-                  <div data-slot="card-footer" className="flex items-center px-6 [.border-t]:pt-6">
-                    <div className="flex justify-around items-center gap-6 w-full text-sm">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="inline-block h-3 w-3 rounded-full"
-                          style={{ backgroundColor: "rgb(16, 185, 129)" }}
-                        ></span>
-                        <span className="text-muted-foreground">Demands</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="inline-block h-3 w-3 rounded-full"
-                          style={{ backgroundColor: "rgb(239, 68, 68)" }}
-                        ></span>
-                        <span className="text-muted-foreground">Users</span>
-                      </div>
-                    </div>
-                  </div>
+
+
                 </div>
               </div>
               <div className="w-full overflow-x-auto bg-white mt-2 rounded-md p-3">

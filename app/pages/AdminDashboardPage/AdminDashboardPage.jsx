@@ -31,7 +31,7 @@ import WSDTableActionsColumn from "../../components/ui_kit/wsd_table/WSDTableAct
 import WSDPrimaryButton from "../../components/ui_kit/WSDPrimaryButton.jsx";
 import { setWSDAlertDialogPayload } from "../../components/ui_kit/wsd_alert_dialog/wsdAlertDialogSlice.js";
 import { hasFlag } from "country-flag-icons";
-import AddDepartmentDialog from "../dialogs/addDepartment_dialog/AddDepartmentDialog.jsx";
+// import AddDepartmentDialog from "../dialogs/addDepartment_dialog/AddDepartmentDialog.jsx";
 
 const DIALOGS = {
   ADD_DEPARTMENT: "ADD_DEPARTMENT",
