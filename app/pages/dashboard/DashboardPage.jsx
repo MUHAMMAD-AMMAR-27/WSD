@@ -10,11 +10,36 @@ import WSDDashboardDrawer from "../../components/dashboard_kit/WSDDashboardDrawe
 import WSDDashboardMainBodyContainer from "../../components/dashboard_kit/WSDDashboardMainBodyContainer.jsx";
 import WSDDashboardBreadCrumb from "../../components/dashboard_kit/WSDDashboardBreadCrumb.jsx";
 import WSDPrimaryButton from "../../components/ui_kit/WSDPrimaryButton.jsx";
-import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
+import { MoreHorizontal, Pencil, Trash2, ClipboardCheck } from "lucide-react";
 import WSDInputField from "../../components/ui_kit/WSDInputField.jsx";
 import { Role } from "../../src/models/Role.js";
-
+import  clipboard  from "../../assets/clipboard.jpeg" ;
+import  questionMark from "../../assets/questionMark.jpeg"
+import clipboardCheck from "../../assets/clipboardCheck.jpeg"
 function DashboardPage() {
+
+  const services = [
+    {
+      id: 1,
+      src: clipboard,
+      alt:"clipBoard",
+      type: "Exam Preparation",
+      data: "view Syllabus & Study Material",
+    },
+    {
+      id: 2,
+      src: questionMark,
+      alt:"QuestionMark",
+      type: "Practice MCQs",
+      data: "Practice Multiple Choice Question",
+    },
+    { id: 3,
+      src: clipboardCheck,
+      alt:"quiz",
+      type: "Take a Quiz",
+      data: "Test Your Knowledge"
+    },
+  ];
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar
@@ -27,25 +52,34 @@ function DashboardPage() {
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
           <div className="flex flex-col gap-4 min-h-full w-full">
-
             {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
+
+
+            <div className={"flex justify-center gap-4 "}>
+              {services.map((service) => {
+                return (
+                  <div
+                    key={service.id}
+                    data-slot="card"
+                    className="bg-white text-card-foreground w-1/3  flex    shadow-lg border border-gray-200 mb-3 rounded-lg overflow-hidden"
+                  >
+                    <div className={" h-full "}>
+                      <img src={service.src} alt={service.alt} />
+                    </div>
+                    {/*<div data-slot="card-content" className="p-4 pt-0 space-y-6">*/}
+                    <div
+                      className={
+                        "flex flex-col items-start w-full justify-center leading-8 gap-4  "
+                      }
+                    >
+                      <h2 className={"font-bold text-2xl "}>{service.type}</h2>
+                      <p className={"text-xl"}>{service.data}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
             <div>
-              <div
-                data-slot="card"
-                className="bg-white text-card-foreground w-1/3 border-gray-200 flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-              >
-                {/*<div data-slot="card-content" className="p-4 pt-0 space-y-6">*/}
-                <StatHeading Heading={"Exam Preparation"} />
-
-
-
-                <StatHeading Heading={"Total Demands"}  />
-
-
-
-              </div>
-
-
               <div className="mt-4">
                 <div
                   data-slot="card"
@@ -305,8 +339,6 @@ function DashboardPage() {
                       Monthly Statistics
                     </div>
                   </div>
-
-
                 </div>
               </div>
               <div className="w-full overflow-x-auto bg-white mt-2 rounded-md p-3">
