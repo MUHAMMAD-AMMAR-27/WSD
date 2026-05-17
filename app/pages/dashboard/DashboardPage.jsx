@@ -16,6 +16,9 @@ import { Role } from "../../src/models/Role.js";
 import  clipboard  from "../../assets/clipboard.jpeg" ;
 import  questionMark from "../../assets/questionMark.jpeg"
 import clipboardCheck from "../../assets/clipboardCheck.jpeg"
+import books from "../../assets/books.png"
+import clipboardAllCheck from "../../assets/clipbboardAllcheck.png"
+import bookGraducationCap from "../../assets/bookGraducationCap.png"
 function DashboardPage() {
 
   const services = [
@@ -40,6 +43,24 @@ function DashboardPage() {
       data: "Test Your Knowledge"
     },
   ];
+
+  const infos = [
+    {
+      id: 1,
+      src: clipboard,
+      alt: "clipBoard",
+      type: "Study Tips & Guides",
+      data: "Helpful tips and resources for exam success",
+    },
+    {
+      id: 2,
+      src: questionMark,
+      alt: "QuestionMark",
+      type: "Performance Stats",
+      data: "Track Your Progress and Results",
+    },
+
+  ];
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar
@@ -51,9 +72,39 @@ function DashboardPage() {
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
-          <div className="flex flex-col gap-4 min-h-full w-full">
+          <div className="flex flex-col gap-3 min-h-full w-full">
             {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
-
+            <div
+              data-slot="card"
+              className="bg-blue-200 border-gray-200 text-card-foreground flex flex-col    shadow-sm border   rounded-lg mt-2"
+            >
+              <div className="flex ">
+                <div className="w-[70%] h-35 pb-3 flex flex-col justify-center pl-6 ">
+                  <h1 className="font-bold text-3xl text-blue-900 tracking-wide mb-2">
+                    Welcome to Exam Prep Hub!
+                  </h1>
+                  <p className="tracking-wide text-lg">Get Ready to Ace Your Exams</p>
+                </div>
+                <div className={" relative w-[30%] h-[100%]]  justify-between pt-3 items-end "}>
+                  <img
+                    className="h-[100%] absolute bottom-[-30%] left-3 "
+                    src={books}
+                    alt={"books"}
+                  />
+                  <img
+                    className="h-[120%] absolute bottom-[-30%] left-19"
+                    src={clipboardAllCheck}
+                    alt="clipboardCheck"
+                  />
+                  <img
+                    className="h-[140%] absolute bottom-[-50%] left-42 "
+                    src={bookGraducationCap}
+                    alt="bookGraducationCap"
+                  />
+                </div>
+              </div>
+              <div className="bg-blue-300 h-10"></div>
+            </div>
 
             <div className={"flex justify-center gap-4 "}>
               {services.map((service) => {
@@ -61,7 +112,7 @@ function DashboardPage() {
                   <div
                     key={service.id}
                     data-slot="card"
-                    className="bg-white text-card-foreground w-1/3  flex    shadow-lg border border-gray-200 mb-3 rounded-lg overflow-hidden"
+                    className="bg-white text-card-foreground w-1/3  flex  shadow-lg border border-gray-200 mb-3 rounded-lg overflow-hidden"
                   >
                     <div className={" h-full "}>
                       <img src={service.src} alt={service.alt} />
@@ -79,275 +130,31 @@ function DashboardPage() {
                 );
               })}
             </div>
-            <div>
-              <div className="mt-4">
-                <div
-                  data-slot="card"
-                  className="bg-white border-gray-200 text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-blue-600">
-                      <h3 className="font-bold text-xl">01 | Qatar | 01</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"Inprocess"} value={10} />
-                        </span>
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"Basic"} value={1} />
-                        </span>
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"Ready"} value={1} />
-                        </span>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"Online (Visa)"} value={10} />
-                        </span>
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"ready to print (visa)"} value={1} />
-                        </span>
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"qvc (med apointment)"} value={1} />
-                        </span>
-                        <span className="text-xs font-medium capitalize">
-                          <StatsCard title={"submit (under process)"} value={1} />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-blue-600">
-                      <h3 className="font-bold text-xl">04 | Qatar | 02</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">inprocess</span>
-                          <span className="text-lg font-bold block">7</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">
-                            qvc (med apointment)
-                          </span>
-                          <span className="text-lg font-bold block">4</span>
-                        </div>
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">online (visa)</span>
-                          <span className="text-lg font-bold block">2</span>
-                        </div>
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">
-                            submit (under process)
-                          </span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-green-600">
-                      <h3 className="font-bold text-xl">07 | Saudi Arabia | 05</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">inprocess</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">nevtec clear</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-green-600">
-                      <h3 className="font-bold text-xl">08 | Saudi Arabia | 07</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">travelled</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">fly date</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-blue-600">
-                      <h3 className="font-bold text-xl">09 | Tajikistan | 01</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">inprocess</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">
-                            submit (under prasess)
-                          </span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-blue-600">
-                      <h3 className="font-bold text-xl">02 | Qatar | 01</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">inprocess</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">
-                            submit (under process)
-                          </span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-green-600">
-                      <h3 className="font-bold text-xl">05 | Saudi Arabia | 03</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">inprocess</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-green-600 pl-1">Status Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="px-3 min-w-[100px] py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">medical (fit)</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 py-6 shadow-sm border border-gray-200 mb-3 rounded-2xl"
-                >
-                  <div data-slot="card-content" className="p-4 space-y-6">
-                    <div className=" text-blue-600">
-                      <h3 className="font-bold text-xl">03 | Saudi Arabia | 01</h3>
-                    </div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <h2 className="text-lg font-semibold text-blue-600 pl-1">Process Bar</h2>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="min-w-[100px] px-3 py-2 bg-gray-100 rounded-lg shadow text-center">
-                          <span className="text-xs font-medium capitalize">ready</span>
-                          <span className="text-lg font-bold block">1</span>
-                        </div>
-                      </div>
-                    </div>
+            {/*<hr className=" text-gray-400 opacity-15 border-t-3 " />*/}
+
+            <div className={"main border-t-3  border-b-3 border-gray-200 flex h-80 gap-4"}>
+              <div className="left-side h-full  w-[60%] flex flex-col ">
+                <h1 className="font-medium text-2xl h-[15%] mt-2">Popular Courses</h1>
+                <div className="h-[55%] w-full bg-gray-200 flex justify-center items-center">
+                  <div className="bg-white h-[90%] w-[98%] border-gray-200 shadow-sm border ">
+                    adsad
                   </div>
                 </div>
               </div>
-              <div className="mt-2">
-                <div
-                  data-slot="card"
-                  className="bg-white text-card-foreground flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm"
-                >
-                  <div
-                    data-slot="card-header"
-                    className="@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6"
-                  >
-                    <div data-slot="card-title" className="font-semibold text-lg">
-                      Monthly Statistics
-                    </div>
+              <span className="center h-[90%] bg-gray-200 w-1 mt-4 "></span>
+              <div className="right-side h-full  w-[45%]">
+                <h1 className="font-medium text-2xl h-[15%] mt-2">Upcoming Quizzes</h1>
+                <div className="h-[60%] w-full bg-gray-200 flex justify-center items-center">
+                  <div className="bg-white h-[90%] w-[98%] border-gray-200 shadow-sm border ">
+                    adsad
                   </div>
                 </div>
-              </div>
-              <div className="w-full overflow-x-auto bg-white mt-2 rounded-md p-3">
-                <h1 className="text-lg font-bold text-custom-black ">
-                  Newly Registered Applicants
-                </h1>
-                <div className="w-full space-y-4 bg-white p-4 rounded-md oveflow-x-auto">`</div>
               </div>
             </div>
+
+
+
+
           </div>
         </WSDDashboardMainBodyContainer>
       </WSDDashboardBase>
