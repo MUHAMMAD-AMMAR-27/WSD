@@ -165,10 +165,10 @@ const WSDDashboardDrawer = () => {
           />
         </DrawerMenuItemsGroup>
         <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/" />
-        <DrawerMenuItem icon={BookOpenText} label="Exam " to="/Exam" />
-        <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/ExamPrepration" />
-        <DrawerMenuItem icon={Clipboard} label="MCQs" to="/Mcqs" />
-        <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/Quizes" />
+        <DrawerMenuItem icon={BookOpenText} label="Exam " to="/exam" />
+        <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/examPrepration" />
+        <DrawerMenuItem icon={Clipboard} label="MCQs" to="/mcqs" />
+        <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/quizes" />
 
         {/*)}*/}
         {/*{ifUserRoleIs(ROLE.APPLICANT_REF) && (*/}

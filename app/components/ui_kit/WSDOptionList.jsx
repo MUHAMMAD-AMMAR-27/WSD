@@ -34,8 +34,8 @@ const WSDOptionList = ({ label, options = [], value, onChange, placeholder = "Se
           "outline-none",
 
           // hover & focus
-          "hover:border-green-500",
-          "focus:border-green-600 focus:ring-2 focus:ring-green-500/30",
+          "hover:border-blue-500",
+          "focus:border-blue-500 focus:ring-2 focus:ring-white",
 
           // transition
           "transition-colors duration-150",
@@ -59,7 +59,7 @@ const WSDOptionList = ({ label, options = [], value, onChange, placeholder = "Se
                   onChange?.(opt.value);
                   setOpen(false);
                 }}
-                className={clsx("cursor-pointer px-3 py-2 text-sm transition-colors", value === opt.value ? "bg-green-50 text-green-700" : "hover:bg-gray-100")}
+                className={clsx("cursor-pointer px-3 py-2 text-sm transition-colors", value === opt.value ? "bg-blue-50 text-blue-600" : "hover:bg-blue-100")}
               >
                 {opt.label}
               </li>
