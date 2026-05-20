@@ -148,11 +148,7 @@ const WSDDashboardDrawer = () => {
             isSubItem={true}
           />
 
-          <DrawerMenuItem
-            label="Add subjects"
-            to="/adminDashboard/addSubject"
-            isSubItem={true}
-          />
+          <DrawerMenuItem label="Add subjects" to="/adminDashboard/addSubject" isSubItem={true} />
           <DrawerMenuItem
             label="Your Replied Demands"
             to="/required_demands/your_replied_demands_required_demands"

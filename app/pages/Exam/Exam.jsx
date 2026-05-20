@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import StatsCard from "../../components/dashboard/body/StatsCard.jsx";
 import StatHeading from "../../components/dashboard/body/StatHeading.jsx";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import WSDDashboardLayout from "../../components/dashboard_kit/WSDDashboardLayout.jsx";
 import WSDDashboardTopAppBar from "../../components/dashboard_kit/WSDDashboardTopAppBar.jsx";
 import WSDDashboardBase from "../../components/dashboard_kit/WSDDashboardBase.jsx";
@@ -10,7 +10,7 @@ import WSDDashboardDrawer from "../../components/dashboard_kit/WSDDashboardDrawe
 import WSDDashboardMainBodyContainer from "../../components/dashboard_kit/WSDDashboardMainBodyContainer.jsx";
 import WSDDashboardBreadCrumb from "../../components/dashboard_kit/WSDDashboardBreadCrumb.jsx";
 import WSDPrimaryButton from "../../components/ui_kit/WSDPrimaryButton.jsx";
-import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight } from "lucide-react";
+import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight,Landmark ,Shield} from "lucide-react";
 import WSDInputField from "../../components/ui_kit/WSDInputField.jsx";
 import { Role } from "../../src/models/Role.js";
 import clipboard from "../../assets/clipboard.jpeg";
@@ -21,7 +21,28 @@ import clipboardAllCheck from "../../assets/clipbboardAllcheck.png";
 import bookGraducationCap from "../../assets/bookGraducationCap.png";
 import StudyTips from "../../assets/StudyTips.png";
 import performance from "../../assets/performance.png";
+import { navigate } from "jsdom/lib/jsdom/living/window/navigation.js";
 function DashboardPage() {
+  const navigation =useNavigate();
+  const {departmentId} =useParams();
+
+
+  const departments = [
+    {
+      id: 1,
+      icon: Landmark,
+      color: "#3a45d9",
+      heading: "Government Jobs",
+      paragraph: "Central & State Government exams and recruitments.",
+    },
+    {
+      id: 2,
+      icon: Shield ,
+      color: "#2de639",
+      heading: "Defence",
+      paragraph: "Join Army, Navy, Air Force & other defence services.",
+    },
+  ];
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar />
@@ -44,8 +65,8 @@ function DashboardPage() {
               </div>
             </div>
 
-            <div className="flex justify-between mt-2">
-              <div>
+            <div className="flex justify-between mt-2 ">
+              <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-xl ">Explore Departments</h2>
                 <p>
                   Select a department to view available exams, syllabus study materials, MCQs and
@@ -59,7 +80,36 @@ function DashboardPage() {
               </div>
             </div>
 
-            <div className="h-[70%] bg-pink-500">kafnsjhao</div>
+            <div className="h-[70%]  flex gap-3">
+              {departments.map((department)=>{
+                return (
+                  <div
+                    key={department.id}
+                    className="bg-white h-[40%] w-[25%] rounded-lg border-2 border-gray-200 flex flex-col"
+                    onClick={() => navigate(`/exam:${department.id}`)}
+                  >
+                    <div className="upper-div  h-[80%] w-[90%] m-auto flex  justify-center items-center gap-4 border-b-2 border-gray-200   ">
+                      <div
+                        className="left-upper-div h-1/2 w-[30%] flex justify-center items-center rounded-lg "
+                        style={{
+                          backgroundColor: `color-mix(in srgb, ${department.color} 10%, transparent)`,
+                        }}
+                      >
+                        <department.icon size={50} style={{ color: department.color }} />
+                      </div>
+
+                      <div className="right-upper-div h-full   flex flex-col justify-center gap-2">
+                        <h1 className="font-semibold text-lg ">{department.heading}</h1>
+                        <p className="text-sm overflow-hidden">{department.paragraph}</p>
+                      </div>
+                    </div>
+                    {/*<hr className="bg-gray-200 w-[80%] m-auto " />*/}
+                    <div className="lower-side  h-[40%]"></div>
+                  </div>
+                );
+              })}
+
+            </div>
 
             <div className="h-[10%] bg-blue-100 flex items-center  rounded-xl border-2 border-gray-300 mt-2">
               <Compass color="#191d85" size={40} className="w-[6%]" />
@@ -68,15 +118,9 @@ function DashboardPage() {
                 <p className="text-sm">Select your target exam and start your journey today</p>
               </div>
               <WSDPrimaryButton className={"flex items-center"}>
-                View All Exams <ArrowRight strokeWidth={1.5} size={20}/>
+                View All Exams <ArrowRight strokeWidth={1.5} size={20} />
               </WSDPrimaryButton>
             </div>
-
-
-
-
-
-
           </div>
         </WSDDashboardMainBodyContainer>
       </WSDDashboardBase>
