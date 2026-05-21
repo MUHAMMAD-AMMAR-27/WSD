@@ -1,7 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 
-const WSDPrimaryButton = ({ children, className = "", disabled = false, type = "button", ...props }) => {
+const WSDPrimaryButton = ({
+  children,
+  className = "",
+  disabled = false,
+  type = "button",
+  disableFocusStyle = false,
+  ...props
+}) => {
   return (
     <button
       type={type}
@@ -20,7 +27,8 @@ const WSDPrimaryButton = ({ children, className = "", disabled = false, type = "
         "select-none",
 
         // focus (accessible, minimal)
-        "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+        !disableFocusStyle &&
+          "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
 
         // disabled (no invented behavior)
         "disabled:opacity-50",

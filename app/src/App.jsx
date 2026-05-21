@@ -19,6 +19,7 @@ export const App = () => {
         <Route path="/dummyDashboard" element={<DummyDrawer />} />
         <Route path="/adminDashboard" element={<AdminDashboardPage />} />
         <Route path="/exam" element={<Exam />} />
+          <Route path="/exam/:departmentId" element={<Exam />} />
         {/*<Route path="/exam/sector" element={<Exam />} />*/}
         <Route path="/adminDashboard/addSubject" element={<AddSubjects />} />
       </Routes>

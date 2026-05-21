@@ -10,7 +10,7 @@ import WSDDashboardDrawer from "../../components/dashboard_kit/WSDDashboardDrawe
 import WSDDashboardMainBodyContainer from "../../components/dashboard_kit/WSDDashboardMainBodyContainer.jsx";
 import WSDDashboardBreadCrumb from "../../components/dashboard_kit/WSDDashboardBreadCrumb.jsx";
 import WSDPrimaryButton from "../../components/ui_kit/WSDPrimaryButton.jsx";
-import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight,Landmark ,Shield} from "lucide-react";
+import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight,Landmark ,Shield,Settings,Stethoscope} from "lucide-react";
 import WSDInputField from "../../components/ui_kit/WSDInputField.jsx";
 import { Role } from "../../src/models/Role.js";
 import clipboard from "../../assets/clipboard.jpeg";
@@ -27,17 +27,87 @@ function DashboardPage() {
   const {departmentId} =useParams();
 
 
+
   const departments = [
     {
       id: 1,
-      icon: Landmark,
+      Icon: Settings,
+      color: "#e10ff0",
+      name: "Engineering",
+      detail: "Government & public Sector Engineering Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+    {
+      id: 2,
+      Icon: Stethoscope,
+      color: "#d41616",
+      name: "Medical",
+      detail: "Medical Entrance & Recruitment Exams",
+    },
+
+
+  ];
+
+
+  const Subdepartments = [
+    {
+      id: 1,
+      Icon: Landmark,
       color: "#3a45d9",
       heading: "Government Jobs",
       paragraph: "Central & State Government exams and recruitments.",
     },
     {
       id: 2,
-      icon: Shield ,
+      Icon: Shield ,
       color: "#2de639",
       heading: "Defence",
       paragraph: "Join Army, Navy, Air Force & other defence services.",
@@ -80,35 +150,48 @@ function DashboardPage() {
               </div>
             </div>
 
-            <div className="h-[70%]  flex gap-3">
-              {departments.map((department)=>{
+            <div className="h-[70%] grid grid-cols-5 gap-3">
+              {departments.map((department) => {
                 return (
                   <div
                     key={department.id}
-                    className="bg-white h-[40%] w-[25%] rounded-lg border-2 border-gray-200 flex flex-col"
-                    onClick={() => navigate(`/exam:${department.id}`)}
+                    className="bg-white rounded-lg border-2 border-gray-200
+        flex flex-col items-center p-4 gap-4"
                   >
-                    <div className="upper-div  h-[80%] w-[90%] m-auto flex  justify-center items-center gap-4 border-b-2 border-gray-200   ">
+                    <div className="flex justify-center items-center w-full">
                       <div
-                        className="left-upper-div h-1/2 w-[30%] flex justify-center items-center rounded-lg "
+                        className="h-18 w-18 flex justify-center items-center rounded-full"
                         style={{
                           backgroundColor: `color-mix(in srgb, ${department.color} 10%, transparent)`,
                         }}
                       >
-                        <department.icon size={50} style={{ color: department.color }} />
-                      </div>
-
-                      <div className="right-upper-div h-full   flex flex-col justify-center gap-2">
-                        <h1 className="font-semibold text-lg ">{department.heading}</h1>
-                        <p className="text-sm overflow-hidden">{department.paragraph}</p>
+                        <department.Icon size={40} style={{ color: department.color }} />
                       </div>
                     </div>
-                    {/*<hr className="bg-gray-200 w-[80%] m-auto " />*/}
-                    <div className="lower-side  h-[40%]"></div>
+
+                    <div className="flex flex-col items-center text-center">
+                      <h1 className="font-semibold text-lg">{department.name}</h1>
+
+                      <p className="text-sm text-gray-600">{department.detail}</p>
+                    </div>
+
+                    <div>
+                      <WSDPrimaryButton
+                        className="flex items-center rounded-xl h-9 px-6"
+                        style={{
+                          backgroundColor: `color-mix(in srgb, ${department.color} 10%, transparent)`,
+                          color: department.color,
+                        }}
+                        disableFocusStyle={true}
+                        onClick={() => navigation(`/exam/${department.id}`)}
+                      >
+                        Exams
+                        <ArrowRight className="ml-2" strokeWidth={1.5} size={20} />
+                      </WSDPrimaryButton>
+                    </div>
                   </div>
                 );
               })}
-
             </div>
 
             <div className="h-[10%] bg-blue-100 flex items-center  rounded-xl border-2 border-gray-300 mt-2">

@@ -47,6 +47,9 @@
         if (to.includes("?")) {
           return to.split("?")[0] === location.pathname;
         }
+        if (to === "/exam") {
+          return location.pathname.startsWith("/exam");
+        }
 
         return location.pathname === to;
       })
@@ -161,7 +164,7 @@ const WSDDashboardDrawer = () => {
           />
         </DrawerMenuItemsGroup>
         <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/" />
-        <DrawerMenuItem icon={BookOpenText} label="Exam " to="/exam" />
+          <DrawerMenuItem icon={BookOpenText} label="Exam " to="/exam" />
         <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/examPrepration" />
         <DrawerMenuItem icon={Clipboard} label="MCQs" to="/mcqs" />
         <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/quizes" />
