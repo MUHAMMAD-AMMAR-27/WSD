@@ -1,13 +1,19 @@
 import React from "react";
 import clsx from "clsx";
 
-const WSDInputField = ({ wrapperClassName, className = "", type = "text", label, ...props }) => {
+const WSDInputField = ({
+  wrapperClassName,
+  className = "",
+  type = "text",
+  label,
+  ...props
+}) => {
   const inputTag = (
     <input
       type={type}
       className={clsx(
         // layout
-        "flex h-9 w-full rounded-xl",
+        "flex h-9 w-full ",
 
         // base appearance
         "border  text-sm text-black ",
@@ -31,12 +37,13 @@ const WSDInputField = ({ wrapperClassName, className = "", type = "text", label,
     />
   );
 
-
   if (label) {
-    return <div className={clsx("flex flex-col", wrapperClassName || 'gap-1')}>
-      <label className="select-none text-sm font-medium ">{label}</label>
-      {inputTag}
-    </div>
+    return (
+      <div className={clsx("flex flex-col", wrapperClassName || "gap-1")}>
+        <label className="select-none text-sm font-medium ">{label}</label>
+        {inputTag}
+      </div>
+    );
   }
 
   return inputTag;

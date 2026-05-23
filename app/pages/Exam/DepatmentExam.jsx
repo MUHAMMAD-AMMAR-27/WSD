@@ -10,7 +10,7 @@ import WSDDashboardDrawer from "../../components/dashboard_kit/WSDDashboardDrawe
 import WSDDashboardMainBodyContainer from "../../components/dashboard_kit/WSDDashboardMainBodyContainer.jsx";
 import WSDDashboardBreadCrumb from "../../components/dashboard_kit/WSDDashboardBreadCrumb.jsx";
 import WSDPrimaryButton from "../../components/ui_kit/WSDPrimaryButton.jsx";
-import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight,Landmark ,Shield,Settings,Stethoscope} from "lucide-react";
+import { MoreHorizontal, Pencil, Trash2, ClipboardCheck, ClipboardList,Compass,ArrowRight,Landmark ,Shield,Settings,Stethoscope,Ellipsis} from "lucide-react";
 import WSDInputField from "../../components/ui_kit/WSDInputField.jsx";
 import { Role } from "../../src/models/Role.js";
 import clipboard from "../../assets/clipboard.jpeg";
@@ -22,7 +22,7 @@ import bookGraducationCap from "../../assets/bookGraducationCap.png";
 import StudyTips from "../../assets/StudyTips.png";
 import performance from "../../assets/performance.png";
 import { navigate } from "jsdom/lib/jsdom/living/window/navigation.js";
-function DashboardPage() {
+function DepartmentExam() {
   const navigation =useNavigate();
   const {departmentId} =useParams();
 
@@ -97,22 +97,7 @@ function DashboardPage() {
   ];
 
 
-  const Subdepartments = [
-    {
-      id: 1,
-      Icon: Landmark,
-      color: "#3a45d9",
-      heading: "Government Jobs",
-      paragraph: "Central & State Government exams and recruitments.",
-    },
-    {
-      id: 2,
-      Icon: Shield ,
-      color: "#2de639",
-      heading: "Defence",
-      paragraph: "Join Army, Navy, Air Force & other defence services.",
-    },
-  ];
+
   return (
     <WSDDashboardLayout>
       <WSDDashboardTopAppBar />
@@ -150,15 +135,19 @@ function DashboardPage() {
               </div>
             </div>
 
-            <div className="h-[70%] grid grid-cols-5 gap-3">
+            <div className="h-[70%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
+              {/* Departments */}
               {departments.map((department) => {
                 return (
                   <div
                     key={department.id}
                     className="bg-white rounded-lg border-2 border-gray-200
-        flex flex-col items-center p-4 gap-4"
+        h-[260px] flex flex-col justify-between p-4
+        hover:shadow-md transition-all duration-200"
                   >
-                    <div className="flex justify-center items-center w-full">
+                    {/* Top Section */}
+                    <div className="flex flex-col items-center gap-4">
+                      {/* Icon */}
                       <div
                         className="h-18 w-18 flex justify-center items-center rounded-full"
                         style={{
@@ -167,23 +156,34 @@ function DashboardPage() {
                       >
                         <department.Icon size={40} style={{ color: department.color }} />
                       </div>
+
+                      {/* Text */}
+                      <div className="flex flex-col items-center text-center min-h-[70px]">
+                        <h1 className="font-semibold text-lg">{department.name}</h1>
+
+                        <p className="text-sm text-gray-600 line-clamp-2 overflow-hidden">
+                          {department.detail}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="flex flex-col items-center text-center">
-                      <h1 className="font-semibold text-lg">{department.name}</h1>
-
-                      <p className="text-sm text-gray-600">{department.detail}</p>
-                    </div>
-
+                    {/* Button */}
                     <div>
                       <WSDPrimaryButton
-                        className="flex items-center rounded-xl h-9 px-6"
+                        className="flex items-center justify-center rounded-xl h-9 w-30 m-auto"
                         style={{
                           backgroundColor: `color-mix(in srgb, ${department.color} 10%, transparent)`,
                           color: department.color,
+                          border: `2px solid color-mix(in srgb, ${department.color} 20%, transparent)`,
                         }}
                         disableFocusStyle={true}
                         onClick={() => navigation(`/exam/${department.id}`)}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = `color-mix(in srgb, ${department.color} 20%, transparent)`;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = `color-mix(in srgb, ${department.color} 10%, transparent)`;
+                        }}
                       >
                         Exams
                         <ArrowRight className="ml-2" strokeWidth={1.5} size={20} />
@@ -192,8 +192,58 @@ function DashboardPage() {
                   </div>
                 );
               })}
-            </div>
 
+              {/* Other Exams Card */}
+              <div
+                className="bg-white rounded-lg border-2 border-gray-200
+    h-[260px] flex flex-col justify-between p-4
+    hover:shadow-md transition-all duration-200"
+              >
+                {/* Top Section */}
+                <div className="flex flex-col items-center gap-4">
+                  {/* Icon */}
+                  <div
+                    className="h-18 w-18 flex justify-center items-center rounded-full"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, #4f5569 10%, transparent)`,
+                    }}
+                  >
+                    <Ellipsis size={40} color="#4f5569" />
+                  </div>
+
+                  {/* Text */}
+                  <div className="flex flex-col items-center text-center min-h-[70px]">
+                    <h1 className="font-semibold text-lg">Other</h1>
+
+                    <p className="text-sm text-gray-600 line-clamp-2 overflow-hidden">
+                      Other Competitive Exams
+                    </p>
+                  </div>
+                </div>
+
+                {/* Button */}
+                <div>
+                  <WSDPrimaryButton
+                    className="flex items-center justify-center rounded-xl h-9 w-30 m-auto"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, #4f5569 10%, transparent)`,
+                      color: "#4f5569",
+                      border: `2px solid color-mix(in srgb, #4f5569 20%, transparent)`,
+                    }}
+                    disableFocusStyle={true}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = `color-mix(in srgb, #4f5569 20%, transparent)`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = `color-mix(in srgb, #4f5569 10%, transparent)`;
+                    }}
+                  >
+                    Exams
+                    <ArrowRight className="ml-2" strokeWidth={1.5} size={20} />
+                  </WSDPrimaryButton>
+                </div>
+              </div>
+            </div>
             <div className="h-[10%] bg-blue-100 flex items-center  rounded-xl border-2 border-gray-300 mt-2">
               <Compass color="#191d85" size={40} className="w-[6%]" />
               <div className="w-[80%] ">
@@ -211,4 +261,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default DepartmentExam;
