@@ -165,7 +165,7 @@ const WSDDashboardDrawer = () => {
         </DrawerMenuItemsGroup>
         <DrawerMenuItem icon={LayoutDashboardIcon} label="Dashboard" to="/" />
           <DrawerMenuItem icon={BookOpenText} label="Exam " to="/exam" />
-        <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/examPrepration" />
+        <DrawerMenuItem icon={FileText} label="Exam Prepration" to="/Preparation" />
         <DrawerMenuItem icon={Clipboard} label="MCQs" to="/mcqs" />
         <DrawerMenuItem icon={ShieldCheck} label="Quizes" to="/quizes" />
 
