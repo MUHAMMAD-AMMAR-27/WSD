@@ -30,13 +30,11 @@ import clipboardAllCheck from "../../assets/clipbboardAllcheck.png";
 import bookGraducationCap from "../../assets/bookGraducationCap.png";
 import StudyTips from "../../assets/StudyTips.png";
 import performance from "../../assets/performance.png";
-function ExamPreparation() {
-  const [SelectedOption,setSelectedOption]=useState(null)
-  const options = ["Rome", "Berlin", "Madrid", "Paris"];
-  const rightAnswer="Paris";
 
-
-
+function MCQs() {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const options = ["Rome", "Paris", "Berlin", "Madrid"];
+  const rightAnswer = "Paris";
 
   return (
     <WSDDashboardLayout>
@@ -59,7 +57,7 @@ function ExamPreparation() {
               </div>
             </div>
 
-            <div className="h-100   bg-white flex flex-col justify-center items-center border-2 border-gray-200 rounded-md shadow-sm ">
+            <div className="h-110   bg-white flex flex-col justify-center items-center border-2 border-gray-200 rounded-md shadow-sm ">
               <div className="h-20 w-full  flex items-center relative  ml-3">
                 <Search
                   className="absolute left-2 top-1/2 -translate-y-1/2   font-bold "
@@ -68,51 +66,96 @@ function ExamPreparation() {
                 <h1 className=" ml-11 font-semibold text-2xl  ">What is the capital of France?</h1>
               </div>
 
-              <div className="w-[95%] flex flex-col gap-2">
+              <div className=" w-[95%] flex flex-col gap-2">
                 {options.map((option, index) => {
+                  const isSelected = selectedOption === option;
+                  const isCorrect = option === rightAnswer;
+                  const hasAnswered = selectedOption !== null;
+                  const selectedAnswerIsCorrect = selectedOption === rightAnswer;
+
+                  const isCorrectlySelected = isSelected && selectedAnswerIsCorrect;
+
+                  const isIncorrectlySelected = isSelected && !selectedAnswerIsCorrect;
+
+                  const shouldRevealCorrectAnswer =
+                    hasAnswered && !selectedAnswerIsCorrect && isCorrect;
+
                   return (
                     <div
                       key={index}
+                      onClick={() => {
+                        if (!hasAnswered) {
+                          setSelectedOption(option);
+                        }
+                      }}
                       className={clsx(
-                        "min-h-15 w-full flex items-center gap-4 rounded-2xl  px-4 py-3 transition-all duration-300 ml-3",
+                        "min-h-15 w-full flex items-center gap-4 rounded-2xl px-4 py-3 transition-all duration-300 ml-3",
+                        !hasAnswered && "hover:bg-gray-200 hover:cursor-pointer",
 
-                        // correct answer
-                        rightAnswer === option ? "bg-green-100 " : "bg-white border-gray-200"
+                        isCorrectlySelected && "bg-green-100",
+                        isIncorrectlySelected && "bg-red-100",
+                        shouldRevealCorrectAnswer && "bg-green-100",
+
+                        !isCorrectlySelected &&
+                          !isIncorrectlySelected &&
+                          !shouldRevealCorrectAnswer &&
+                          "bg-white border-gray-200"
                       )}
                     >
-                      {/* Circle */}
                       <div
                         className={clsx(
-                          "h-10 w-10 rounded-full border-2 flex items-center justify-center shrink-0 font-semibold text-base ",
+                          "h-10 w-10 rounded-full border-2 flex items-center justify-center shrink-0 font-semibold text-base",
 
-                          rightAnswer === option
-                            ? "bg-green-700 border-green-700 text-white"
-                            : "border-gray-400 text-gray-700"
+                          isCorrectlySelected && "bg-green-700 border-green-700 text-white",
+
+                          isIncorrectlySelected && "bg-red-700 border-red-700 text-white",
+
+                          shouldRevealCorrectAnswer && "bg-green-700 border-green-700 text-white",
+
+                          !isCorrectlySelected &&
+                            !isIncorrectlySelected &&
+                            !shouldRevealCorrectAnswer &&
+                            "border-gray-400 text-gray-700"
                         )}
                       >
-                        {rightAnswer === option ? (
-                          <Check className="h-8 w-8" />
-                        ) : (
-                          String.fromCharCode(65 + index)
-                        )}
+                        {String.fromCharCode(65 + index)}
                       </div>
 
-                      {/* Text */}
-                      <div className="flex flex-col">
+                      <div className="flex flex-col ">
                         <strong
                           className={clsx(
                             "text-lg font-semibold",
 
-                            rightAnswer === option ? "text-green-700" : "text-gray-800"
+                            isCorrectlySelected && "text-green-700",
+                            isIncorrectlySelected && "text-red-700",
+                            shouldRevealCorrectAnswer && "text-green-700"
                           )}
                         >
                           {option}
                         </strong>
 
-                        {rightAnswer === option && (
+                        {isCorrectlySelected && (
                           <p className="flex items-center gap-2 text-sm text-green-700 mt-1">
-                            <span className="h-4 w-4  bg-green-700 flex items-center justify-center">
-                              <Check className="h-4 w-4 font-bold text-white" />
+                            <span className="h-4 w-4 bg-green-700 flex items-center justify-center">
+                              <Check className="h-4 w-4 text-white" />
+                            </span>
+                            Correct Answer
+                          </p>
+                        )}
+
+                        {isIncorrectlySelected && (
+                          <p className="flex items-center gap-2 text-sm text-red-700 mt-1">
+                            <span className="h-4 w-4 bg-red-700 flex items-center justify-center">
+                              <Check className="h-4 w-4 text-white" />
+                            </span>
+                            Wrong Answer
+                          </p>
+                        )}
+
+                        {shouldRevealCorrectAnswer && (
+                          <p className="flex items-center gap-2 text-sm text-green-700 mt-1">
+                            <span className="h-4 w-4 bg-green-700 flex items-center justify-center">
+                              <Check className="h-4 w-4 text-white" />
                             </span>
                             Correct Answer
                           </p>
@@ -125,14 +168,11 @@ function ExamPreparation() {
             </div>
             <div className="h-20  w-full   border-b-2 border-gray-200 flex justify-between items-center">
               <p>1-10 of 120 Questions</p>
-              <div>
+              <div></div>
 
-              </div>
-
-                <button className="bg-white text-blue-800  border-gray-200 h-10 w-30 flex justify-around items-center font-bold border-2  rounded text-lg">
-                  Next <ArrowRight className="ml-2" strokeWidth={3} size={20} />
-                </button>
-
+              <button className="bg-white text-blue-800  border-gray-200 h-10 w-30 flex justify-around items-center font-bold border-2  rounded text-lg">
+                Next <ArrowRight className="ml-2" strokeWidth={3} size={20} />
+              </button>
             </div>
           </div>
         </WSDDashboardMainBodyContainer>
@@ -141,4 +181,4 @@ function ExamPreparation() {
   );
 }
 
-export default ExamPreparation;
+export default MCQs;

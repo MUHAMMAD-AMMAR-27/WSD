@@ -10,6 +10,7 @@ import AddSubjects from "../pages/AdminDashboardPage/AdminSideDrawer/AddSubjects
 import DepartmentExam from "../pages/Exam/DepatmentExam.jsx";
 import SubDepartmentExam from "../pages/Exam/SubDepartmentExam.jsx"
 import ExamPreparation from "../pages/ExamPreparation/ExamPreparation.jsx";
+import MCQs from "../pages/MCQs/MCQs.jsx";
 export const App = () => {
   return (
     <Router>
@@ -23,6 +24,7 @@ export const App = () => {
         <Route path="/exam" element={<DepartmentExam />} />
         <Route path="/exam/:departmentId" element={<SubDepartmentExam />} />
         <Route path="/Preparation" element={ <ExamPreparation/>} />
+        <Route path="/mcqs" element={<MCQs/>}/>
         <Route path="/adminDashboard/addSubject" element={<AddSubjects />} />
       </Routes>
     </Router>
