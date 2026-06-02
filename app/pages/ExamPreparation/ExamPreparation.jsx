@@ -31,9 +31,27 @@ import bookGraducationCap from "../../assets/bookGraducationCap.png";
 import StudyTips from "../../assets/StudyTips.png";
 import performance from "../../assets/performance.png";
 function ExamPreparation() {
-  const [SelectedOption,setSelectedOption]=useState(null)
-  const options = ["Rome", "Berlin", "Madrid", "Paris"];
-  const rightAnswer="Paris";
+  const [SelectedOption,setSelectedOption]=useState(null);
+  const [index,setIndex]=useState(0)
+  useEffect(()=>{
+    setSelectedOption(null)
+  },[index]);
+
+
+
+  const data = [
+    {
+      statement: "what is the capital of France?",
+      options: ["Rome", "Paris", "Berlin", "Madrid"],
+      rightAnswer: "Paris",
+    },
+    {
+      statement: "what is the capital of Pakistan?",
+      options: ["Islamabad", "Karachi", "Lahore", "Sargodha"],
+      rightAnswer: "Islamabad",
+    },
+  ];
+  const { statement, options, rightAnswer } = data[index];
 
 
 
@@ -129,7 +147,12 @@ function ExamPreparation() {
 
               </div>
 
-                <button className="bg-white text-blue-800  border-gray-200 h-10 w-30 flex justify-around items-center font-bold border-2  rounded text-lg">
+                <button className="bg-white text-blue-800  border-gray-200 h-10 w-30 flex justify-around items-center font-bold border-2  rounded text-lg hover:cursor-pointer"
+                onClick={()=>{
+                  if(index <data.length-1){
+                    setIndex(prev=>prev+1)
+                }}}
+                >
                   Next <ArrowRight className="ml-2" strokeWidth={3} size={20} />
                 </button>
 
