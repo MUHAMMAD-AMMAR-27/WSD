@@ -6,6 +6,7 @@ import logger from "redux-logger";
 import { dashboardPageSlice } from "../../pages/dashboard/dashboardPageSlice";
 import { addDepartmentDialogSlice } from "../../pages/dialogs/adddepartment_dialog/addDepartmentDialogSlice";
 import { addSubjectsDialogSlice } from "../../pages/dialogs/addsubjects_dialog/addSubjectsDialogSlice";
+import { quizzesDialogSlice } from "../../pages/dialogs/quizzes_dialog/quizzesDialogSlice";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
@@ -13,7 +14,7 @@ const rootReducer = combineSlices(
   dashboardPageSlice,
   addDepartmentDialogSlice,
   addSubjectsDialogSlice,
-
+  quizzesDialogSlice,
 );
 
 // Infer the `RootState` type from the root reducer

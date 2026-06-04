@@ -62,7 +62,7 @@ function ExamPreparation() {
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
-          <div className="flex flex-col gap-3 min-h-full w-full">
+          <div className="flex flex-col gap-3 p-6 min-h-full w-full">
             <div className="border-b-2 h-28 border-gray-200  flex flex-col justify-center gap-2">
               <h1 className="font-bold text-4xl   ">Exams Preparation</h1>
               <WSDDashboardBreadCrumb subSteps={["Overview "]} />
@@ -77,7 +77,7 @@ function ExamPreparation() {
               </div>
             </div>
 
-            <div className="h-100   bg-white flex flex-col justify-center items-center border-2 border-gray-200 rounded-md shadow-sm ">
+            <div className="h-110   bg-white flex flex-col  items-center border-2 border-gray-200 rounded-md shadow-sm ">
               <div className="h-20 w-full  flex items-center relative  ml-3">
                 <Search
                   className="absolute left-2 top-1/2 -translate-y-1/2   font-bold "
@@ -87,12 +87,12 @@ function ExamPreparation() {
               </div>
 
               <div className="w-[95%] flex flex-col gap-2">
-                {options.map((option, index) => {
+                {options.map((option, mcqIndex) => {
                   return (
                     <div
-                      key={index}
+                      key={mcqIndex}
                       className={clsx(
-                        "min-h-15 w-full flex items-center gap-4 rounded-2xl  px-4 py-3 transition-all duration-300 ml-3",
+                        "h-20 w-full flex items-center gap-4 rounded-2xl  px-4 py-3 transition-all duration-300 ml-3",
 
                         // correct answer
                         rightAnswer === option ? "bg-green-100 " : "bg-white border-gray-200"
@@ -111,7 +111,7 @@ function ExamPreparation() {
                         {rightAnswer === option ? (
                           <Check className="h-8 w-8" />
                         ) : (
-                          String.fromCharCode(65 + index)
+                          String.fromCharCode(65 + mcqIndex)
                         )}
                       </div>
 

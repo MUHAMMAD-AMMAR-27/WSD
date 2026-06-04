@@ -11,6 +11,8 @@ import DepartmentExam from "../pages/Exam/DepatmentExam.jsx";
 import SubDepartmentExam from "../pages/Exam/SubDepartmentExam.jsx"
 import ExamPreparation from "../pages/ExamPreparation/ExamPreparation.jsx";
 import MCQs from "../pages/MCQs/MCQs.jsx";
+import Quizes from "../pages/Quizzes/Quizzes.jsx";
+import Quizzes from "../pages/Quizzes/Quizzes.jsx";
 export const App = () => {
   return (
     <Router>
@@ -25,6 +27,7 @@ export const App = () => {
         <Route path="/exam/:departmentId" element={<SubDepartmentExam />} />
         <Route path="/Preparation" element={ <ExamPreparation/>} />
         <Route path="/mcqs" element={<MCQs/>}/>
+        <Route path="/quizzes" element={<Quizzes/>}/>
         <Route path="/adminDashboard/addSubject" element={<AddSubjects />} />
       </Routes>
     </Router>

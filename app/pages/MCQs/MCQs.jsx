@@ -62,23 +62,23 @@
         <WSDDashboardBase>
           <WSDDashboardDrawer />
           <WSDDashboardMainBodyContainer containsOverlay={false}>
-            <div className="flex flex-col gap-3 min-h-full w-full">
+            <div className="flex flex-col p-6 gap-3 min-h-full w-full">
               <div className="border-b-2 h-28 border-gray-200  flex flex-col justify-center gap-2">
                 <h1 className="font-bold text-4xl   ">Exams Preparation</h1>
                 <WSDDashboardBreadCrumb subSteps={["Overview "]} />
               </div>
               <div className="flex  h-20">
                 <div className="left-side w-[80%] flex flex-col gap-3">
-                  <h1 className="font-bold text-3xl   ">Solved MCQs</h1>
-                  <p className="text-md">Review the solved MCQs for your exam</p>
+                  <h1 className="font-bold text-3xl   ">MCQs</h1>
+                  <p className="text-md">Solve MCQs for your exam</p>
                 </div>
                 <div className=" right-side w-[20%] ">
                   <h1>sdf</h1>
                 </div>
               </div>
 
-              <div className="h-110   bg-white flex flex-col justify-center items-center border-2 border-gray-200 rounded-md shadow-sm ">
-                <div className="h-20 w-full  flex items-center relative  ml-3">
+              <div className="h-110   bg-white flex flex-col  items-center border-2 border-gray-200 rounded-md shadow-sm ">
+                <div className="h-20  w-full  flex items-center relative  ml-3">
                   <Search
                     className="absolute left-2 top-1/2 -translate-y-1/2   font-bold "
                     size={25}
@@ -87,7 +87,7 @@
                 </div>
 
                 <div className=" w-[95%] flex flex-col gap-2">
-                  {options.map((option, index) => {
+                  {options.map((option, mcqIndex) => {
                     const isSelected = selectedOption === option;
                     const isCorrect = option === rightAnswer;
                     const hasAnswered = selectedOption !== null;
@@ -102,14 +102,14 @@
 
                     return (
                       <div
-                        key={index}
+                        key={mcqIndex}
                         onClick={() => {
                           if (!hasAnswered) {
                             setSelectedOption(option);
                           }
                         }}
                         className={clsx(
-                          "min-h-15 w-full flex items-center gap-4 rounded-2xl px-4 py-3 transition-all duration-300 ml-3",
+                          "h-20 w-full flex items-center gap-4 rounded-2xl px-4 py-3 transition-all duration-300 ml-3",
                           !hasAnswered && "hover:bg-gray-200 hover:cursor-pointer",
 
                           isCorrectlySelected && "bg-green-100",
@@ -138,7 +138,7 @@
                               "border-gray-400 text-gray-700"
                           )}
                         >
-                          {String.fromCharCode(65 + index)}
+                          {String.fromCharCode(65 + mcqIndex)}
                         </div>
 
                         <div className="flex flex-col ">

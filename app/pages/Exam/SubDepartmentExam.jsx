@@ -125,7 +125,7 @@ function SubDepartmentExam() {
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
-          <div className="flex flex-col gap-3 h-[100%] w-full">
+          <div className="flex flex-col gap-3 p-6 h-[100%] w-full">
             {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
             <div className="h-[13%]  flex flex-col gap-2 ">
               <h1 className="font-bold text-4xl   ">Exams</h1>

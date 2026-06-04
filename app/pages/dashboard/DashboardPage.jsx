@@ -69,7 +69,7 @@ function DashboardPage() {
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
-          <div className="flex flex-col gap-3 min-h-full w-full">
+          <div className="flex flex-col p-6 gap-3 min-h-full w-full">
             {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
             <div
               data-slot="card"

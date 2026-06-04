@@ -104,7 +104,7 @@ function DepartmentExam() {
       <WSDDashboardBase>
         <WSDDashboardDrawer />
         <WSDDashboardMainBodyContainer containsOverlay={false}>
-          <div className="flex flex-col gap-3 h-[100%] w-full">
+          <div className="flex flex-col p-6 gap-3 h-[100%] w-full">
             {/*<WSDDashboardBreadCrumb subSteps={["Overview"]} />*/}
             <div className="h-[13%]  flex justify-between border-b-2 border-gray-300">
               <div className="left-side w-1/2 flex flex-col justify-center gap-4">
